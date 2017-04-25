@@ -1,0 +1,5 @@
+ISS:
+---ERD
+---BD
+---cazuri de utilizare (diag)
+---3 formuri (login, admin tool: enter users / create account, main)
