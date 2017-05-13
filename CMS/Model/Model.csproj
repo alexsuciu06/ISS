@@ -43,6 +43,7 @@
     <Compile Include="User.cs" />
     <Compile Include="Presentation.cs" />
     <Compile Include="Abstract.cs" />
+    <Compile Include="Author.cs" />
     <Compile Include="Paper.cs" />
     <Compile Include="PaperMetaInformation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
