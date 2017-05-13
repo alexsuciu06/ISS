@@ -1,0 +1,8 @@
+D:\Facultate\ISS\CMS\CMS\bin\Debug\CMS.exe.config
+D:\Facultate\ISS\CMS\CMS\bin\Debug\CMS.exe
+D:\Facultate\ISS\CMS\CMS\bin\Debug\CMS.pdb
+D:\Facultate\ISS\CMS\CMS\obj\Debug\CMS.csprojResolveAssemblyReference.cache
+D:\Facultate\ISS\CMS\CMS\obj\Debug\CMS.Properties.Resources.resources
+D:\Facultate\ISS\CMS\CMS\obj\Debug\CMS.csproj.GenerateResource.Cache
+D:\Facultate\ISS\CMS\CMS\obj\Debug\CMS.exe
+D:\Facultate\ISS\CMS\CMS\obj\Debug\CMS.pdb
