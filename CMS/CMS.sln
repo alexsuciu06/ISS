@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26206.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMSClient", "CMS\CMSClient.csproj", "{2E431477-3B7E-40F9-9559-960236AEAAA5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMSClient", "CMSClient\CMSClient.csproj", "{2E431477-3B7E-40F9-9559-960236AEAAA5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMSServer", "CMSServer\CMSServer.csproj", "{F01E3729-3343-4949-88F2-335A9A61364D}"
 EndProject
