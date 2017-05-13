@@ -40,6 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Review.cs"/>
+     <Compile Include="Reviewer.cs"/>
+     <Compile Include="Recomandation.cs"/>
     <Compile Include="Conference.cs"/>
     <Compile Include="Edition.cs" />
     <Compile Include="Room.cs" />
