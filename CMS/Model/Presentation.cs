@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    class Presentation
+    public class Presentation
     {
         private int idPresentation;
         private int idPaper;
