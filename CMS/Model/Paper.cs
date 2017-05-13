@@ -83,7 +83,7 @@ namespace Model
 
         public override string ToString()
         {
-            return " ";
+            return this.idPaper +" " + this.File + " " + this.abs.ToString() + " " + this.meta.ToString();
         }
     }
 }
