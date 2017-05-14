@@ -34,9 +34,10 @@
             this.PasswordTextbox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.RegisterButton = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.ForgotLink = new System.Windows.Forms.LinkLabel();
+            this.RegisterLink = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // LoginButton
@@ -91,16 +92,6 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Password :";
             // 
-            // RegisterButton
-            // 
-            this.RegisterButton.Location = new System.Drawing.Point(110, 235);
-            this.RegisterButton.Name = "RegisterButton";
-            this.RegisterButton.Size = new System.Drawing.Size(183, 23);
-            this.RegisterButton.TabIndex = 6;
-            this.RegisterButton.Text = "Register";
-            this.RegisterButton.UseVisualStyleBackColor = true;
-            this.RegisterButton.Click += new System.EventHandler(this.RegisterButton_Click);
-            // 
             // comboBox1
             // 
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -124,14 +115,36 @@
             this.label3.TabIndex = 8;
             this.label3.Text = "Role :";
             // 
+            // ForgotLink
+            // 
+            this.ForgotLink.AutoSize = true;
+            this.ForgotLink.Location = new System.Drawing.Point(303, 248);
+            this.ForgotLink.Name = "ForgotLink";
+            this.ForgotLink.Size = new System.Drawing.Size(91, 13);
+            this.ForgotLink.TabIndex = 9;
+            this.ForgotLink.TabStop = true;
+            this.ForgotLink.Text = "Forgot password?";
+            // 
+            // RegisterLink
+            // 
+            this.RegisterLink.AutoSize = true;
+            this.RegisterLink.Location = new System.Drawing.Point(12, 248);
+            this.RegisterLink.Name = "RegisterLink";
+            this.RegisterLink.Size = new System.Drawing.Size(112, 13);
+            this.RegisterLink.TabIndex = 10;
+            this.RegisterLink.TabStop = true;
+            this.RegisterLink.Text = "Create a new account";
+            this.RegisterLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Register_LinkClicked);
+            // 
             // LoginWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(406, 270);
+            this.Controls.Add(this.RegisterLink);
+            this.Controls.Add(this.ForgotLink);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.RegisterButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.PasswordTextbox);
@@ -159,10 +172,10 @@
         private System.Windows.Forms.TextBox PasswordTextbox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button RegisterButton;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label3;
-        
+        private System.Windows.Forms.LinkLabel ForgotLink;
+        private System.Windows.Forms.LinkLabel RegisterLink;
     }
 }
 

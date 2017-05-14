@@ -82,7 +82,12 @@ namespace CMS
             cnct.Deconectare();
         }
 
-        private void RegisterButton_Click(object sender, EventArgs e)
+        private void LoginButton_Click(object sender, EventArgs e)
+        {
+            //todo
+        }
+
+        private void Register_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             FormCollection fc = Application.OpenForms;
             bool gasit = false;
@@ -104,11 +109,6 @@ namespace CMS
                 this.reg = new Register();
                 reg.Show();
             }
-        }
-
-        private void LoginButton_Click(object sender, EventArgs e)
-        {
-            //todo
         }
     }
 }
