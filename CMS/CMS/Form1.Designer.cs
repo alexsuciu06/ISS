@@ -144,7 +144,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
-
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OnApplicationExit);
         }
 
         #endregion
@@ -158,6 +158,7 @@
         private System.Windows.Forms.Button RegisterButton;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label3;
+        
     }
 }
 

@@ -12,9 +12,16 @@ namespace CMS
 {
     public partial class LoginWindow : Form
     {
+        ConnectServer cnct = new ConnectServer();
+
         public LoginWindow()
         {
             InitializeComponent();
+            LoginWatermark();
+        }
+
+        private void LoginWatermark()
+        {
             UsernameTextbox.ForeColor = SystemColors.GrayText;
             UsernameTextbox.Text = "Please Enter Your Username";
             PasswordTextbox.ForeColor = SystemColors.GrayText;
@@ -71,6 +78,11 @@ namespace CMS
         private void CancelButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void OnApplicationExit(object sender, EventArgs e)
+        {
+            cnct.Deconectare();
         }
     }
 }
