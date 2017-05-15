@@ -10,26 +10,22 @@ namespace Model
     {
         private int idPaperMetaInformation;
         private string name;
-        private List<string> keywords;
-        private List<string> topics;
+        private string keywords;
 
         public PaperMetaInformation()
         {
             this.idPaperMetaInformation = 0;
             this.name = "";
-            this.keywords = null;
-            this.topics = null;
+            this.keywords = "";
         }
 
-        public PaperMetaInformation(int idPaperMetaInformation, string name, List<string> keywords, List<string> topics)
+        public PaperMetaInformation( string name, string keywords)
         {
-            this.idPaperMetaInformation = idPaperMetaInformation;
             this.name = name;
             this.keywords = keywords;
-            this.topics = topics;
         }
 
-        public virtual int IdPaperMetaInformation
+        public virtual int Id
         {
             get { return idPaperMetaInformation; }
             set { idPaperMetaInformation = value; }
@@ -48,7 +44,7 @@ namespace Model
             }
         }
 
-        public virtual List<string> Keywords
+        public virtual string Keywords
         {
             get
             {
@@ -61,22 +57,11 @@ namespace Model
             }
         }
 
-        public virtual List<string> Topics
-        {
-            get
-            {
-                return topics;
-            }
-
-            set
-            {
-                topics = value;
-            }
-        }
+       
 
         public override string ToString()
         {
-            return idPaperMetaInformation + " " + name + " " + keywords + " " + topics;
+            return idPaperMetaInformation + " " + name + " " + keywords;
         }
 
         public override bool Equals(object obj)
