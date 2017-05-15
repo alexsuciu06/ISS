@@ -8,32 +8,32 @@ namespace Model
 {
     public class Presentation
     {
+      
         private int idPresentation;
-        private int idPaper;
+        private Paper paper;
         private DateTime time;
 
         public Presentation()
         {
         }
 
-        public Presentation(int idPresentation, int idPaper, DateTime time)
+        public Presentation(Paper idPaper, DateTime time)
         {
-            this.idPresentation = idPresentation;
-            this.idPaper = idPaper;
+            this.paper = idPaper;
             this.time = time;
         }
 
 
-        public virtual int IdPresentation
+        public virtual int Id
         {
-            get { return IdPresentation; }
-            set { idPresentation = value; }
+            get { return idPresentation; }
+            protected set { idPresentation = value; }
         }
 
-        public virtual int IdPaper
+        public virtual Paper Paper
         {
-            get { return idPaper; }
-            set { idPaper = value; }
+            get { return paper; }
+            set { paper = value; }
         }
 
         public virtual DateTime Time
@@ -44,7 +44,7 @@ namespace Model
 
         public override string ToString()
         {
-            return idPresentation + " " + IdPaper + " " + Time + "\n";
+            return idPresentation + " " + Paper + " " + Time + "\n";
         }
 
 

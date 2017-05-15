@@ -12,14 +12,14 @@ namespace Model
         private string name;
         private string affiliation;
 
-        public virtual int IdAuthor
+        public virtual int Id
         {
             get
             {
                 return idAuthor;
             }
 
-            set
+            protected set
             {
                 idAuthor = value;
             }
@@ -51,22 +51,20 @@ namespace Model
             }
         }
 
-        public Author(int idAuthor, string name, string affiliation)
+        public Author(string name, string affiliation)
         {
-            this.IdAuthor = idAuthor;
             this.Name = name;
             this.Affiliation = affiliation;
         }
         
         public Author()
         {
-            this.IdAuthor = 0;
             this.Name = "";
             this.Affiliation = "";
         }
         public override string ToString()
         {
-            return IdAuthor+ " " +Name+ " " +Affiliation;
+            return Id+ " " +Name+ " " +Affiliation;
         }
 
         public override bool Equals(object obj)
@@ -79,6 +77,11 @@ namespace Model
             if (a.idAuthor != this.idAuthor || a.name != this.name || a.affiliation != this.affiliation)
                 return false;
             return true;
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
 
     }

@@ -6,58 +6,72 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public enum Role {Author, Reviewer }
+    public enum Role {Author, Reviewer}
 
     public class User
     {
         private int idUser;
-        private String username;
-        private String password;
-        private String email;
+        private string username;
+        private string password;
+        private string email;
         private Role role;
 
         public User()
         {
         }
 
-        public User(int idUser, String username, String password, String email, Role role)
+        public User(string username, string password, string email, string role)
         {
-            this.idUser = idUser;
             this.username = username;
             this.password = password;
             this.email = email;
-            this.role = role;
+            Enum.TryParse(role, out Role myStatus);
+            this.role = myStatus;
         }
 
-        public User(String username, String password)
+        public User(string username, string password)
         {
             this.username = username;
             this.password = password;
         }
 
         
-        public virtual int IdUser
+        public virtual int Id
         {
             get { return idUser; }
-            set { idUser = value; }
+            protected set { idUser = value; }
         }
 
-        public virtual String Username
+        public virtual string Username
         {
             get { return username; }
             set { username = value; }
         }
 
-        public virtual String Password
+        public virtual string Password
         {
             get { return password; }
             set { password = value; }
         }
 
-        public virtual String Email
+        public virtual string Email
         {
             get { return email; }
             set { email = value; }
+        }
+
+        public virtual string Rol
+        {
+            get
+            {
+                return role.ToString();
+            }
+
+            set
+            {
+                Enum.TryParse(value, out Role myStatus);
+                role = myStatus;
+            }
         }
 
         public virtual Role Role
@@ -71,17 +85,20 @@ namespace Model
             if (ob != null && ob.GetType() == GetType())
             {
                 User user = (User)ob;
-                return user.IdUser != this.IdUser || user.Username != this.Username || user.Password != this.Password || user.Role != this.Role;
+                return user.Id != this.Id || user.Username != this.Username || user.Password != this.Password || user.Role != this.Role;
             } 
             return false;
         }
 
-        public override String ToString()
+        public override string ToString()
         {
-            return IdUser + " " + Username + " " + Password + " " + Email + " " + Role + "\n";
+            return Id + " " + Username + " " + Password + " " + Email + " " + Role + "\n";
         }
-        
 
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
 
     }
 }

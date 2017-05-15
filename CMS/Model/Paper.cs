@@ -13,14 +13,14 @@ namespace Model
         private Abstract abs;
         private PaperMetaInformation meta;
 
-        public virtual int IdPaper
+        public virtual int Id
         {
             get
             {
                 return idPaper;
             }
 
-            set
+            protected set
             {
                 idPaper = value;
             }
@@ -67,15 +67,15 @@ namespace Model
 
         public Paper()
         {
-            this.IdPaper = 0;
+            this.Id = 0;
             this.File = "";
             this.Abs = null;
             this.Meta = null;
         }
 
-        public Paper(int idPaper, string file, Abstract abs, PaperMetaInformation meta)
+        public Paper(string file, Abstract abs, PaperMetaInformation meta)
         {
-            this.IdPaper = idPaper;
+            this.Id = idPaper;
             this.File = file;
             this.Abs = abs;
             this.Meta = meta;
@@ -83,7 +83,7 @@ namespace Model
 
         public override string ToString()
         {
-            return this.idPaper +" " + this.File + " " + this.abs.ToString() + " " + this.meta.ToString();
+            return " ";
         }
     }
 }

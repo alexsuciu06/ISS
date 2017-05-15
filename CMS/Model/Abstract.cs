@@ -12,10 +12,10 @@ namespace Model
         private int idAbstract;
         private string file;
 
-        public virtual int IdAbstract
+        public virtual int Id
         {
             get { return idAbstract; }
-            set { idAbstract = value; }
+            protected set { idAbstract = value; }
         }
         public virtual string File
         {
@@ -29,9 +29,8 @@ namespace Model
             this.file = "";
         }
 
-        public Abstract(int idAbstract, string file)
+        public Abstract(string file)
         {
-            this.idAbstract = idAbstract;
             this.file = file;
         }
 
