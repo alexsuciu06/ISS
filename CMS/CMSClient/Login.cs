@@ -6,11 +6,12 @@ namespace CMS
 {
     public partial class LoginWindow : Form
     {
-        ConnectServer cnct = new ConnectServer();
+        ClientCtrl ctrl = new ClientCtrl();
         Register reg = null;
 
-        public LoginWindow()
+        public LoginWindow(ClientCtrl Controller)
         {
+            this.ctrl = Controller;
             InitializeComponent();
             LoginWatermark();
         }
@@ -75,11 +76,6 @@ namespace CMS
         private void CancelButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }
-
-        private void OnApplicationExit(object sender, EventArgs e)
-        {
-            cnct.Deconectare();
         }
 
         private void LoginButton_Click(object sender, EventArgs e)

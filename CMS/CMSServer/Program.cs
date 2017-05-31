@@ -1,4 +1,8 @@
-﻿using System;
+﻿using System.Runtime.Remoting.Channels;
+using System.Runtime.Remoting.Channels.Tcp;
+using System;
+using System.Collections;
+using System.Runtime.Remoting;
 
 namespace CMSServer
 {
@@ -7,8 +11,27 @@ namespace CMSServer
         [STAThread]
         static void Main()
         {
-            Server sv = new Server();
-            sv.ExecuteConcurrentServer();
+            BinaryServerFormatterSinkProvider serverProv = new BinaryServerFormatterSinkProvider();
+            serverProv.TypeFilterLevel = System.Runtime.Serialization.Formatters.TypeFilterLevel.Full;
+            BinaryClientFormatterSinkProvider clientProv = new BinaryClientFormatterSinkProvider();
+
+            IDictionary props = new Hashtable();
+            props["port"] = 55555;
+
+            TcpChannel channel = new TcpChannel(props, clientProv, serverProv);
+            ChannelServices.RegisterChannel(channel, false);
+
+
+            var server = new Services();
+
+            RemotingServices.Marshal(server, "Chat");
+
+
+
+            Console.WriteLine("Server started ...");
+            Console.WriteLine("Press <enter> to exit...");
+            Console.ReadLine();
+
         }
     }
 }

@@ -157,7 +157,6 @@
             this.Name = "LoginWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login window";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OnApplicationExit);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
