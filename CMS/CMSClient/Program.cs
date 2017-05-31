@@ -39,7 +39,6 @@ namespace CMS
 
         private static void OnApplicationExit(object sender, EventArgs e)
         {
-            //MessageBox.Show(ctrl.ToString());
             Console.WriteLine("TEST");
         }
     }
