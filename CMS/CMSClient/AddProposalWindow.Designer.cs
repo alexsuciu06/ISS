@@ -47,7 +47,7 @@
             this.UploadPaperButton.TabIndex = 0;
             this.UploadPaperButton.Text = "Upload Paper";
             this.UploadPaperButton.UseVisualStyleBackColor = true;
-            this.UploadPaperButton.Click += new System.EventHandler(this.button1_Click);
+            this.UploadPaperButton.Click += new System.EventHandler(this.UploadPaperButton_Click);
             // 
             // PaperTextBox
             // 
@@ -55,7 +55,7 @@
             this.PaperTextBox.Name = "PaperTextBox";
             this.PaperTextBox.Size = new System.Drawing.Size(167, 20);
             this.PaperTextBox.TabIndex = 1;
-            this.PaperTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            //this.PaperTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // AbstractTextBox
             // 
@@ -108,7 +108,7 @@
             this.TopicsLabel.Size = new System.Drawing.Size(39, 13);
             this.TopicsLabel.TabIndex = 9;
             this.TopicsLabel.Text = "Topics";
-            this.TopicsLabel.Click += new System.EventHandler(this.TopicsLabel_Click);
+            //this.TopicsLabel.Click += new System.EventHandler(this.TopicsLabel_Click);
             // 
             // TopicsTextBox
             // 
@@ -116,7 +116,7 @@
             this.TopicsTextBox.Name = "TopicsTextBox";
             this.TopicsTextBox.Size = new System.Drawing.Size(273, 20);
             this.TopicsTextBox.TabIndex = 10;
-            this.TopicsTextBox.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            //this.TopicsTextBox.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // AddProposalWindow
             // 
@@ -134,7 +134,7 @@
             this.Controls.Add(this.UploadPaperButton);
             this.Name = "AddProposalWindow";
             this.Text = "AddProposalWindow";
-            this.Load += new System.EventHandler(this.AddProposalWindow_Load);
+            //this.Load += new System.EventHandler(this.AddProposalWindow_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

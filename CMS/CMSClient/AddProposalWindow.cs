@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CMS.Controllers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,52 +20,37 @@ namespace CMS
         String keywords = "";
         String topics = "";
 
-        public AddProposalWindow()
+        public MainClientController ctrl;
+
+        public AddProposalWindow(MainClientController ctrl)
         {
             InitializeComponent();
-        }
-
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            openFileDialogPaper.ShowDialog();
-            PaperTextBox.Text = Path.GetFileName(openFileDialogPaper.FileName);
-        }
-
-        private void AddProposalWindow_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
+            this.ctrl = ctrl;
         }
 
         private void UploadAbstractButton_Click(object sender, EventArgs e)
         {
+
             openFileDialogAbstract.ShowDialog();
-            AbstractTextBox.Text = Path.GetFileName(openFileDialogAbstract.FileName);
-        }
-
-        private void TopicsLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
+            AbstractTextBox.Text = openFileDialogAbstract.FileName;
         }
 
         private void SubmitButton_Click(object sender, EventArgs e)
         {
             getKeywordsTopics();
+            try
+            {
+                ctrl.SubmitProposal(
+                        KeywordsTextBox.Text.Split(','),
+                        TopicsTextBox.Text.Split(','),
+                        AbstractTextBox.Text,
+                        PaperTextBox.Text
+                    );
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error submitting proposal", MessageBoxButtons.OK);
+            }
         }
 
         private void getKeywordsTopics()
@@ -72,6 +58,11 @@ namespace CMS
             keywords += KeywordsTextBox.Text;
             topics += TopicsTextBox.Text;
         }
-        
+
+        private void UploadPaperButton_Click(object sender, EventArgs e)
+        {
+            openFileDialogPaper.ShowDialog();
+            PaperTextBox.Text = openFileDialogPaper.FileName;
+        }
     }
 }

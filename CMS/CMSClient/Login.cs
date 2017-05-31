@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CMS.Controllers;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -6,13 +7,14 @@ namespace CMS
 {
     public partial class LoginWindow : Form
     {
-        ConnectServer cnct = new ConnectServer();
         Register reg = null;
+        public MainClientController ctr;
 
-        public LoginWindow()
+        public LoginWindow(MainClientController ctr)
         {
             InitializeComponent();
             LoginWatermark();
+            this.ctr = ctr;
         }
 
 #region watermark
@@ -79,7 +81,7 @@ namespace CMS
 
         private void OnApplicationExit(object sender, EventArgs e)
         {
-            cnct.Deconectare();
+            //cnct.Deconectare();
         }
 
         private void LoginButton_Click(object sender, EventArgs e)

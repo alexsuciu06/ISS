@@ -16,12 +16,7 @@ namespace CMSServer
         void SendEmailConfirmation(string username, string passwoerd, string email);
         void UploadPaper(string title, string keyWords, string topics, string authorsList, string infAboutAuthors);
         string GetHome();
-
-
+        void AddProposal(string[] keywords, string[] topics, string abstractFileName, string paperFileName);
         List<Paper> getAllPapers(int idEdition);
-
-
-        
-
     }
 }
