@@ -51,16 +51,14 @@ namespace Model
             }
         }
 
-        public Edition(int idEdition, string name, Conference conference)
+        public Edition(string name, Conference conference)
         {
-            this.IdEdition = idEdition;
             this.Name = name;
             this.Conference = conference;
         }
 
         public Edition()
         {
-            this.IdEdition = 0;
             this.Name = "";
             this.Conference = null;
         }
