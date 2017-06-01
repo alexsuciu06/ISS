@@ -10,21 +10,21 @@ using NHibernate.Linq;
 
 namespace Persistence.Repository
 {
-    public class MetaInformationTopicsRepository : GenericRepository<MetaInformationTopics>
+    public class ReviewRepository : GenericRepository<Review>
     {
         public override long RowCount()
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
-                return session.QueryOver<MetaInformationTopics>().RowCountInt64();
+                return session.QueryOver<Review>().RowCountInt64();
             }
         }
 
-        public override List<MetaInformationTopics> GetAll()
+        public override List<Review> GetAll()
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
-                return session.Query<MetaInformationTopics>().ToList();
+                return session.Query<Review>().ToList();
             }
         }
     }

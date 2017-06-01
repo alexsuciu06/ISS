@@ -6,51 +6,25 @@ using System.Text;
 using System.Threading.Tasks;
 using NHibernate;
 using Persistence.utils;
+using NHibernate.Linq;
 
 namespace Persistence.Repository
 {
-    class AuthorRepository : IRepository<Author>
+    public class AuthorRepository : GenericRepository<Author>
     { 
-        public void Save(Author person)
-        {
-            using (ISession session = NHibernateHelper.OpenSession())
-            using (ITransaction transaction = session.BeginTransaction())
-            {
-                session.Save(person);
-                transaction.Commit();
-            }
-        }
-        public Author Get(int id)
-        {
-            using (ISession session = NHibernateHelper.OpenSession())
-                return session.Get<Author>(id);
-        }
-
-        public void Update(Author person)
-        {
-            using (ISession session = NHibernateHelper.OpenSession())
-            using (ITransaction transaction = session.BeginTransaction())
-            {
-                session.Update(person);
-                transaction.Commit();
-            }
-        }
-
-        public void Delete(Author person)
-        {
-            using (ISession session = NHibernateHelper.OpenSession())
-            using (ITransaction transaction = session.BeginTransaction())
-            {
-                session.Delete(person);
-                transaction.Commit();
-            }
-        }
-
-        public long RowCount()
+        public override long RowCount()
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
                 return session.QueryOver<Author>().RowCountInt64();
+            }
+        }
+
+        public override List<Author> GetAll()
+        {
+            using (ISession session = NHibernateHelper.OpenSession())
+            {
+                return session.Query<Author>().ToList();
             }
         }
     }

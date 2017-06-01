@@ -13,5 +13,6 @@ namespace Persistence.Repository
         void Update(T person);
         void Delete(T person);
         long RowCount();
+        List<T> GetAll();
     }
 }
