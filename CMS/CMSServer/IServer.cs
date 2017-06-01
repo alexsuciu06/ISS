@@ -14,9 +14,12 @@ namespace CMSServer
         bool Login(string username, string password);
         void Register(string name, string affliation, string username, string password, string confirmPassword, string email, string role);
         void SendEmailConfirmation(string username, string passwoerd, string email);
+        bool existsUsername(string username);
         void UploadPaper(string title, string keyWords, string topics, string authorsList, string infAboutAuthors);
         string GetHome();
         void AddProposal(string[] keywords, string[] topics, string abstractFileName, string paperFileName);
+        List<Edition> getAllEditions();
+        int getIdEdition(string edition);
         List<Paper> getAllPapers(int idEdition);
     }
 }

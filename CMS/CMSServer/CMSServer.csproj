@@ -43,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DB Repository\Repository.cs" />
+    <Compile Include="IServer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="IServer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
