@@ -34,11 +34,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-<<<<<<< Updated upstream
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Runtime.Remoting" />
-=======
->>>>>>> Stashed changes
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -50,7 +47,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< Updated upstream
     <Compile Include="AddProposalWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -59,10 +55,8 @@
     </Compile>
     <Compile Include="Controllers\AddProposalWindowController.cs" />
     <Compile Include="Controllers\MainClientController.cs" />
-=======
     <Compile Include="ConnectServer.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
->>>>>>> Stashed changes
     <Compile Include="Form2.cs">
       <SubType>Form</SubType>
     </Compile>
