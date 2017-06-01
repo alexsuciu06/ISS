@@ -55,6 +55,8 @@
     </Compile>
     <Compile Include="Controllers\AddProposalWindowController.cs" />
     <Compile Include="Controllers\MainClientController.cs" />
+    <Compile Include="ConnectServer.cs" />
+    <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Form2.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,9 +83,8 @@
     <Compile Include="Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AddProposalWindow.resx">
-      <DependentUpon>AddProposalWindow.cs</DependentUpon>
-    </EmbeddedResource>
+    <Compile Include="Validations\DataException.cs" />
+    <Compile Include="Validations\ValidationData.cs" />
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -120,7 +121,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CMSServer\CMSServer.csproj">
-      <Project>{F01E3729-3343-4949-88F2-335A9A61364D}</Project>
+      <Project>{f01e3729-3343-4949-88f2-335a9a61364d}</Project>
       <Name>CMSServer</Name>
     </ProjectReference>
   </ItemGroup>
