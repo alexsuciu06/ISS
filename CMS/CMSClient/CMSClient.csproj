@@ -47,11 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddProposalWindow.cs">
+    <Compile Include="ConnectServer.cs" />
+    <Compile Include="LoginChooseEdition.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddProposalWindow.Designer.cs">
-      <DependentUpon>AddProposalWindow.cs</DependentUpon>
+    <Compile Include="LoginChooseEdition.Designer.cs">
+      <DependentUpon>LoginChooseEdition.cs</DependentUpon>
     </Compile>
     <Compile Include="Controllers\AddProposalWindowController.cs" />
     <Compile Include="Controllers\MainClientController.cs" />
@@ -81,8 +82,11 @@
     <Compile Include="Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AddProposalWindow.resx">
-      <DependentUpon>AddProposalWindow.cs</DependentUpon>
+    <EmbeddedResource Include="LoginChooseEdition.resx">
+      <DependentUpon>LoginChooseEdition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
