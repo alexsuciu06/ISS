@@ -120,9 +120,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Controllers\RegisterController.cs" />
-    <Compile Include="Validations\DataException.cs" />
-    <Compile Include="Validations\ValidationData.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
