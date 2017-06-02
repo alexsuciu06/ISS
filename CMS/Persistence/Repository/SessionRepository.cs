@@ -1,30 +1,30 @@
-﻿using System;
+﻿using Model;
+using NHibernate;
+using NHibernate.Linq;
+using Persistence.utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using NHibernate;
-using Persistence.utils;
-using Model;
-using NHibernate.Linq;
 
 namespace Persistence.Repository
 {
-    public class MetaInformationTopicsRepository : GenericRepository<MetaInformationTopics>
+    public class SessionRepository : GenericRepository<Session>
     {
         public override long RowCount()
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
-                return session.QueryOver<MetaInformationTopics>().RowCountInt64();
+                return session.QueryOver<Session>().RowCountInt64();
             }
         }
 
-        public override List<MetaInformationTopics> GetAll()
+        public override List<Session> GetAll()
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
-                return session.Query<MetaInformationTopics>().ToList();
+                return session.Query<Session>().ToList();
             }
         }
     }

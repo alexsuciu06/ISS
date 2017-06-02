@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    class Recomandation
+    public class Recomandation
     {
         private int idRecomandation;
         private string file;
@@ -22,7 +22,7 @@ namespace Model
             this.File = "";
         }
 
-        public int IdRecomandation
+        public virtual int IdRecomandation
         {
             get
             {
@@ -35,7 +35,7 @@ namespace Model
             }
         }
 
-        public string File
+        public virtual string File
         {
             get
             {
