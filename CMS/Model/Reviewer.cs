@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    class Reviewer
+    public class Reviewer
     {
         private int idReviewer;
         private string name;
@@ -25,7 +25,7 @@ namespace Model
             this.Affilation = "";
         }
 
-        public int IdReviewer
+        public virtual int IdReviewer
         {
             get
             {
@@ -38,7 +38,7 @@ namespace Model
             }
         }
 
-        public string Name
+        public virtual string Name
         {
             get
             {
@@ -51,7 +51,7 @@ namespace Model
             }
         }
 
-        public string Affilation
+        public virtual string Affilation
         {
             get
             {

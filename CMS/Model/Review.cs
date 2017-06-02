@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    class Review
+    public class Review
     {
         private int idReview;
         private Reviewer reviewer;
@@ -31,7 +31,7 @@ namespace Model
             this.recomandation = new Recomandation();
         }
 
-        public int IdReview
+        public virtual int IdReview
         {
             get
             {
@@ -44,7 +44,7 @@ namespace Model
             }
         }
 
-        internal Reviewer Reviewer
+        public virtual Reviewer Reviewer
         {
             get
             {
@@ -57,7 +57,7 @@ namespace Model
             }
         }
 
-        public string Grade
+        public virtual string Grade
         {
             get
             {
@@ -70,7 +70,7 @@ namespace Model
             }
         }
 
-        public Paper Paper
+        public virtual Paper Paper
         {
             get
             {
@@ -83,7 +83,7 @@ namespace Model
             }
         }
 
-        public Recomandation Recomandation
+        public virtual Recomandation Recomandation
         {
             get
             {

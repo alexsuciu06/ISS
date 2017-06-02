@@ -10,21 +10,22 @@ using NHibernate.Linq;
 
 namespace Persistence.Repository
 {
-    public class MetaInformationTopicsRepository : GenericRepository<MetaInformationTopics>
+    public class ConferenceRepository : GenericRepository<Conference>
     {
+
         public override long RowCount()
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
-                return session.QueryOver<MetaInformationTopics>().RowCountInt64();
+                return session.QueryOver<Conference>().RowCountInt64();
             }
         }
 
-        public override List<MetaInformationTopics> GetAll()
+        public override List<Conference> GetAll()
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
-                return session.Query<MetaInformationTopics>().ToList();
+                return session.Query<Conference>().ToList();
             }
         }
     }

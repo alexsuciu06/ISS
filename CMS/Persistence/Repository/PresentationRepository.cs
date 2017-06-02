@@ -6,51 +6,26 @@ using System.Threading.Tasks;
 using NHibernate;
 using Persistence.utils;
 using Model;
+using NHibernate.Linq;
 
 namespace Persistence.Repository
 {
-    class PresentationRepository : IRepository<Presentation>
+    public class PresentationRepository : GenericRepository<Presentation>
     {
-        public void Save(Presentation person)
-        {
-            using (ISession session = NHibernateHelper.OpenSession())
-            using (ITransaction transaction = session.BeginTransaction())
-            {
-                session.Save(person);
-                transaction.Commit();
-            }
-        }
-        public Presentation Get(int id)
-        {
-            using (ISession session = NHibernateHelper.OpenSession())
-                return session.Get<Presentation>(id);
-        }
 
-        public void Update(Presentation person)
-        {
-            using (ISession session = NHibernateHelper.OpenSession())
-            using (ITransaction transaction = session.BeginTransaction())
-            {
-                session.Update(person);
-                transaction.Commit();
-            }
-        }
-
-        public void Delete(Presentation person)
-        {
-            using (ISession session = NHibernateHelper.OpenSession())
-            using (ITransaction transaction = session.BeginTransaction())
-            {
-                session.Delete(person);
-                transaction.Commit();
-            }
-        }
-
-        public long RowCount()
+        public override long RowCount()
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
                 return session.QueryOver<Presentation>().RowCountInt64();
+            }
+        }
+
+        public override List<Presentation> GetAll()
+        {
+            using (ISession session = NHibernateHelper.OpenSession())
+            {
+                return session.Query<Presentation>().ToList();
             }
         }
     }

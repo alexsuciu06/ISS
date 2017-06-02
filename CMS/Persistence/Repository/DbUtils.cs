@@ -14,7 +14,7 @@ namespace Persistence.Repository
         
         public void CreateSchema()
         {
-            DeleteDatabaseIfExists();
+           // DeleteDatabaseIfExists();
 
             var schemaUpdate = new SchemaUpdate(NHibernateHelper.Configuration);
             schemaUpdate.Execute(false, true);
@@ -24,8 +24,8 @@ namespace Persistence.Repository
        
         public void DeleteDatabaseIfExists()
         {
-            if (File.Exists("test.db"))
-                File.Delete("test.db");
+            if (File.Exists("ISSDatabase.db"))
+                File.Delete("ISSDatabase.db");
         }
     }
 }

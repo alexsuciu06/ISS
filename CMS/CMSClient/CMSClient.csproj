@@ -47,7 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConnectServer.cs" />
+    <Compile Include="Controllers\LoginChooseEditionController.cs" />
     <Compile Include="LoginChooseEdition.cs">
       <SubType>Form</SubType>
     </Compile>
