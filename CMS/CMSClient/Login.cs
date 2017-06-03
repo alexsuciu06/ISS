@@ -1,4 +1,8 @@
 ﻿using CMS.Controllers;
+<<<<<<< Updated upstream
+=======
+using CMS.Validations;
+>>>>>>> Stashed changes
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -8,6 +12,7 @@ namespace CMS
     public partial class LoginWindow : Form
     {
         Register reg = null;
+        LoginChooseEditionWindow
         public MainClientController ctr;
 
         public LoginWindow(MainClientController ctr)
@@ -17,7 +22,6 @@ namespace CMS
             this.ctr = ctr;
         }
 
-#region watermark
         private void LoginWatermark()
         {
             UsernameTextbox.ForeColor = SystemColors.GrayText;
@@ -67,7 +71,6 @@ namespace CMS
                 PasswordTextbox.PasswordChar = '*';
             }
         }
-#endregion
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -86,7 +89,18 @@ namespace CMS
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            //todo
+            try
+            {
+                ctr.Login(
+                    UsernameTextbox.Text,
+                    PasswordTextbox.Text,
+                    roleComboBox.Text
+                 );
+                this.Hide();
+            } catch ( DataException ex )
+            {
+                MessageBox.Show(ex.Message, "Can't log you in!", MessageBoxButtons.OK);
+            }
         }
 
         private void Register_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

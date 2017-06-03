@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public enum Role {Author, Reviewer}
+    public enum Role {Author, Reviewer, Listener, PCMember}
 
+    [Serializable]
     public class User
     {
         private int idUser;

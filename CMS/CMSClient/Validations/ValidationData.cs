@@ -1,5 +1,9 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 ﻿using CMSServer;
+=======
+﻿using CMSServer;
+>>>>>>> Stashed changes
 =======
 ﻿using CMSServer;
 >>>>>>> Stashed changes
@@ -27,8 +31,10 @@ namespace CMS.Validations
 
         public void validateUsername(IServer server, string username)
         {
-            /*if (!server.validateUserName(username))
-                throw new DataException("This username is already exists");*/
+            //if (!server.validateUserName(username))
+            //    throw new DataException("This username is already exists");
+            //if (!server.validateUserName(username))
+            //    throw new DataException("This username is already exists");
         }
 
         //public bool validate
