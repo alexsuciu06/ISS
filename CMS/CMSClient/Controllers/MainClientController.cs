@@ -35,7 +35,7 @@ namespace CMS.Controllers
         }
 
         public void SubmitProposal(string[] keywords, string[] topics, string path_to_abstract, string path_to_paper) {
-            addProposalCtr.SubmitProposal(keywords, topics, path_to_abstract, path_to_paper);
+            addProposalCtr.SubmitProposal(keywords, topics, path_to_abstract, path_to_paper, new Edition());
         }
 
 

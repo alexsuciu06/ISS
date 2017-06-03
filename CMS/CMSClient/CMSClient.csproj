@@ -59,6 +59,7 @@
     </Compile>
     <Compile Include="Controllers\ChooseEditionController.cs" />
     <Compile Include="Controllers\AddProposalWindowController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MainClientController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Form2.cs">

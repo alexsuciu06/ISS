@@ -55,7 +55,7 @@ namespace Model
             }
         }
 
-        public DateTime Deadline
+        public virtual DateTime Deadline
         {
             get
             {
@@ -67,7 +67,7 @@ namespace Model
             }
         }
 
-        public DateTime StartDateTime
+        public virtual DateTime StartDateTime
         {
             get
             {
@@ -79,7 +79,7 @@ namespace Model
             }
         }
 
-        public DateTime EndDateTime
+        public virtual DateTime EndDateTime
         {
             get
             {

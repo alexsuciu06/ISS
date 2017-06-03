@@ -11,7 +11,7 @@ using System.Timers;
 namespace CMSServer
 {
    
-    class ServerImpl : MarshalByRefObject, IServer
+    public class ServerImpl : MarshalByRefObject, IServer
     {
         private EditionRepository editionRepository;
         private ConferenceRepository conferenceRepository;
@@ -43,16 +43,6 @@ namespace CMSServer
             throw new NotImplementedException();
         }
 
-        public List<Edition> getAllEditions()
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool existsUsername(string username)
-        {
-            throw new NotImplementedException();
-        }
-
         public List<Conference> getAllConferences()
         {
             return conferenceRepository.GetAll();
@@ -61,10 +51,6 @@ namespace CMSServer
         public List<Edition> getAllEditions()
         {
             return editionRepository.GetAll();
-
-        public List<Edition> getAllEditions()
-        {
-            throw new NotImplementedException();
         }
 
         public List<Paper> getAllPapers(int idEdition)
@@ -86,11 +72,6 @@ namespace CMSServer
         {
             return userRepo.GetByUsernameAndRole(username, role);
             
-        }
-
-        public void Register(string name, string affliation, string username, string password, string confirmPassword, string email, string role)
-        {
-            throw new NotImplementedException();
         }
 
         public void Register(string first_name, string last_name, string affilation, string username, string password, string email, string role)

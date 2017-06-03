@@ -90,7 +90,7 @@ namespace Model
             set { role = value; }
         }
 
-        public bool Is_validated
+        public virtual bool Is_validated
         {
             get
             {
@@ -103,7 +103,7 @@ namespace Model
             }
         }
 
-        public string First_name
+        public virtual string First_name
         {
             get
             {
@@ -116,7 +116,7 @@ namespace Model
             }
         }
 
-        public string Last_name
+        public virtual string Last_name
         {
             get
             {
@@ -129,7 +129,7 @@ namespace Model
             }
         }
 
-        public string Affilation
+        public virtual string Affilation
         {
             get
             {
