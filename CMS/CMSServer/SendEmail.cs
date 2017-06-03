@@ -11,7 +11,7 @@ namespace CMSServer
 {
     class SendEmail
     {
-        MailAddress fromAddress = new MailAddress("issProject001@gmail.com");
+        MailAddress fromAddress = new MailAddress("issproject001@gmail.com");
         const string fromPassword = "proiectiss";
 
         

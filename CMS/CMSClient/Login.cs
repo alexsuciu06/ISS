@@ -9,7 +9,6 @@ namespace CMS
     public partial class LoginWindow : Form
     {
         Register reg = null;
-        LoginChooseEditionWindow
         public MainClientController ctr;
 
         public LoginWindow(MainClientController ctr)

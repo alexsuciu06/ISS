@@ -28,5 +28,21 @@ namespace Persistence.Repository
             }
         }
 
+        public User GetByUsernameAndRole(string username, string role)
+        {
+            using (ISession session = NHibernateHelper.OpenSession())
+            {
+                List<User> users = session.Query<User>()
+                    .Where(u => u.Username.Equals(username) && u.Rol.Equals(role))
+                    .ToList();
+                if (users.Count.Equals(0))
+                {
+                    return null;
+                } else
+                {
+                    return users[0];
+                }
+            }
+        }
     }
 }
