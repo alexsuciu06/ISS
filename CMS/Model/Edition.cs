@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
+    [Serializable]
     public class Edition
     {
         private int idEdition;

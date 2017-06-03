@@ -19,7 +19,8 @@ using System.Threading.Tasks;
          string GetHome();
          void AddProposal(string[] keywords, string[] topics, string abstractFileName, string paperFileName);
          List<Edition> getAllEditions();
-         int getIdEdition(string edition);
+         List<Conference> getAllConferences();
+        int getIdEdition(string edition);
          List<Paper> getAllPapers(int idEdition);
      }
  }
