@@ -24,6 +24,9 @@ namespace Persistence.DAO
                 map.Lazy(LazyRelation.NoLazy);
             });
             Property(x => x.Name);
+            Property(x => x.Deadline, m => m.Type(new NHibernate.Type.DateTimeType()));
+            Property(x => x.StartDateTime, m => m.Type(new NHibernate.Type.DateTimeType()));
+            Property(x => x.EndDateTime, m => m.Type(new NHibernate.Type.DateTimeType()));
         }
 
     }

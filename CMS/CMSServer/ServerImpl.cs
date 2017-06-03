@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Model;
 using Persistence.Repository;
+using System.IO;
+using System.Timers;
 
 namespace CMSServer
 {
@@ -13,7 +15,7 @@ namespace CMSServer
     {
         private EditionRepository editionRepository;
         private ConferenceRepository conferenceRepository;
-	    private UserRepository userRepo = new UserRepository();
+	private UserRepository userRepo = new UserRepository();
 			
         public ServerImpl()
         {
@@ -21,8 +23,27 @@ namespace CMSServer
             editionRepository = new EditionRepository();
             
         }
+        
+        PaperRepository paerRepo = new PaperRepository();
+        AbstractRepository abstractRepo = new AbstractRepository();
+        PaperMetaInfRepository metaInfoRepo = new PaperMetaInfRepository();
 
         public void AddProposal(string[] keywords, string[] topics, string abstractFileName, string paperFileName)
+        { 
+            PaperMetaInformation metaInfo = new PaperMetaInformation(Path.GetFileName(paperFileName), string.Join(",", keywords));
+            Abstract abs = new Abstract(abstractFileName);
+            Paper paper = new Paper(paperFileName, abs, metaInfo);
+            metaInfoRepo.Save(metaInfo);
+            abstractRepo.Save(abs);
+            paerRepo.Save(paper);
+        }
+
+        public bool existsUsername(string username)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Edition> getAllEditions()
         {
             throw new NotImplementedException();
         }
@@ -61,7 +82,13 @@ namespace CMSServer
             throw new NotImplementedException();
         }
 
-        public bool Login(string username, string password)
+        public User Login(string username, string password, string role)
+        {
+            return userRepo.GetByUsernameAndRole(username, role);
+            
+        }
+
+        public void Register(string name, string affliation, string username, string password, string confirmPassword, string email, string role)
         {
             throw new NotImplementedException();
         }

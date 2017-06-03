@@ -11,8 +11,8 @@ using System.Threading.Tasks;
      {
          void RegisterConference(string edition, string session, string deadlineUploadPaper, string deadlineUploadAbstract, string deadlineUploadInformations
              , string deadlineLicitationProcess);
-         bool Login(string username, string password);
          void Register(string first_name, string last_name, string affilation, string username, string password, string email, string role);
+         User Login(string username, string password, string role);
          void SendEmailConfirmation(string username, string passwoerd, string email);
          bool existsUsername(string username);
          void UploadPaper(string title, string keyWords, string topics, string authorsList, string infAboutAuthors);
@@ -20,7 +20,7 @@ using System.Threading.Tasks;
          void AddProposal(string[] keywords, string[] topics, string abstractFileName, string paperFileName);
          List<Edition> getAllEditions();
          List<Conference> getAllConferences();
-        int getIdEdition(string edition);
+         int getIdEdition(string edition);
          List<Paper> getAllPapers(int idEdition);
      }
  }

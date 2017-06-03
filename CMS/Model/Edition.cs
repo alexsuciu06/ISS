@@ -12,6 +12,9 @@ namespace Model
         private int idEdition;
         private string name;
         private Conference conference;
+        private DateTime deadline;
+        private DateTime startDateTime;
+        private DateTime endDateTime;
 
         public virtual int IdEdition
         {
@@ -52,8 +55,53 @@ namespace Model
             }
         }
 
+        public DateTime Deadline
+        {
+            get
+            {
+                return deadline;
+            }
+            set
+            {
+                deadline = value;
+            }
+        }
+
+        public DateTime StartDateTime
+        {
+            get
+            {
+                return startDateTime;
+            }
+            set
+            {
+                startDateTime = value;
+            }
+        }
+
+        public DateTime EndDateTime
+        {
+            get
+            {
+                return endDateTime;
+            }
+            set
+            {
+                endDateTime = value;
+            }
+        }
+
         public Edition(string name, Conference conference)
         {
+            this.Name = name;
+            this.Conference = conference;
+        }
+
+        public Edition(string name, Conference conference, DateTime deadline, DateTime start, DateTime end)
+        {
+            this.deadline = deadline;
+            this.startDateTime = start;
+            this.endDateTime = end;
             this.Name = name;
             this.Conference = conference;
         }
