@@ -1,12 +1,4 @@
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-﻿using CMSServer;
-=======
-﻿using CMSServer;
->>>>>>> Stashed changes
-=======
-﻿using CMSServer;
->>>>>>> Stashed changes
+using CMSServer;
 using System;
 using System.Collections.Generic;
 using System.Linq;

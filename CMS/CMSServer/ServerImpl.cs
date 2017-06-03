@@ -5,11 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Model;
 using Persistence.Repository;
-<<<<<<< Updated upstream
-=======
 using System.IO;
 using System.Timers;
->>>>>>> Stashed changes
 
 namespace CMSServer
 {
