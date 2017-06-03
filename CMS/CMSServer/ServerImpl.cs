@@ -4,14 +4,41 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Model;
+using Persistence.Repository;
 
 namespace CMSServer
 {
+   
     class ServerImpl : MarshalByRefObject, IServer
     {
+        private EditionRepository editionRepository;
+        private ConferenceRepository conferenceRepository;
+
+        public ServerImpl()
+        {
+            conferenceRepository = new ConferenceRepository();
+            editionRepository = new EditionRepository();
+            
+        }
+
         public void AddProposal(string[] keywords, string[] topics, string abstractFileName, string paperFileName)
         {
             throw new NotImplementedException();
+        }
+
+        public bool existsUsername(string username)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Conference> getAllConferences()
+        {
+            return conferenceRepository.GetAll();
+        }
+
+        public List<Edition> getAllEditions()
+        {
+            return editionRepository.GetAll();
         }
 
         public List<Paper> getAllPapers(int idEdition)
@@ -22,6 +49,11 @@ namespace CMSServer
         public string GetHome()
         {
             return System.AppDomain.CurrentDomain.BaseDirectory;
+        }
+
+        public int getIdEdition(string edition)
+        {
+            throw new NotImplementedException();
         }
 
         public bool Login(string username, string password)

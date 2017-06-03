@@ -15,6 +15,7 @@ namespace Persistence.DAO
         {
             Id(x => x.Id, m => m.Generator(Generators.Identity)/* m => m.Generator(Generators.Identity)*/);
             Property(x => x.File);
+           // x.Abs = session.Load<Abstract>(parentId); 
             this.ManyToOne(
             x => x.Abs,
             map =>
@@ -31,7 +32,8 @@ namespace Persistence.DAO
             {
                 map.Column("MetaInformation");
                 map.Fetch(FetchKind.Join);
-                map.ForeignKey("none");
+                map.ForeignKey("fkMetaInfo");
+                
                 map.Lazy(LazyRelation.NoLazy);
             });
         }

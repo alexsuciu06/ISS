@@ -37,7 +37,8 @@ namespace CMS
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginWindow(ctrl));
+           // Application.Run(new LoginWindow(ctrl));
+            Application.Run(new ChooseEdition(ctrl));
         }
     }
 }
