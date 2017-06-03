@@ -1,13 +1,6 @@
-<<<<<<< Updated upstream
-﻿using CMSServer;
 using Model;
-<<<<<<< Updated upstream
-=======
-﻿using CMS.Controlers;
+using CMS.Controlers;
 using CMSServer;
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 using System;
 using System.Collections.Generic;
 using System.Linq;

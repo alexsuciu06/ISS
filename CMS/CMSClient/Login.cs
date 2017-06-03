@@ -1,8 +1,5 @@
 ﻿using CMS.Controllers;
-<<<<<<< Updated upstream
-=======
 using CMS.Validations;
->>>>>>> Stashed changes
 using System;
 using System.Drawing;
 using System.Windows.Forms;
