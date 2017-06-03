@@ -90,8 +90,6 @@
     <Compile Include="Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="LoginChooseEdition.resx">
-      <DependentUpon>LoginChooseEdition.cs</DependentUpon>
     <EmbeddedResource Include="ChooseEdition.resx">
       <DependentUpon>ChooseEdition.cs</DependentUpon>
     </EmbeddedResource>
