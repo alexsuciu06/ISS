@@ -23,9 +23,14 @@ namespace CMS.Controlers
 
         public void register(string first_name, string last_name,string affilation, string username,string password, string email, string role)
         {
-            if (server.Register(first_name,last_name,affilation,username,password,email,role) == true)
+            try
             {
+                server.Register(first_name, last_name, affilation, username, password, email, role);
                 MessageBox.Show("You will receive a confirmation mail");
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
             }
         }
 

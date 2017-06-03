@@ -103,12 +103,12 @@ namespace CMS
             if (reg != null)
             {
                 reg.Close();
-                this.reg = new Register();
+                this.reg = new Register(ctr);
                 reg.Show();
             }
             else
             {
-                this.reg = new Register();
+                this.reg = new Register(ctr);
                 reg.Show();
             }
         }

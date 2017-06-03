@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -47,11 +48,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="AddProposalWindow.cs">
-    <Compile Include="LoginChooseEdition.cs">
-    <SubType>Form</SubType>
+      <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ChooseEdition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChooseEdition.Designer.cs">
+      <DependentUpon>ChooseEdition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\ChooseEditionController.cs" />
     <Compile Include="Controllers\AddProposalWindowController.cs" />
     <Compile Include="Controllers\MainClientController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
@@ -86,6 +92,8 @@
     </Compile>
     <EmbeddedResource Include="LoginChooseEdition.resx">
       <DependentUpon>LoginChooseEdition.cs</DependentUpon>
+    <EmbeddedResource Include="ChooseEdition.resx">
+      <DependentUpon>ChooseEdition.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>

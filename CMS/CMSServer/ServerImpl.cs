@@ -4,12 +4,44 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Model;
+using Persistence.Repository;
 
 namespace CMSServer
 {
+   
     class ServerImpl : MarshalByRefObject, IServer
     {
+        private EditionRepository editionRepository;
+        private ConferenceRepository conferenceRepository;
+	    private UserRepository userRepo = new UserRepository();
+			
+        public ServerImpl()
+        {
+            conferenceRepository = new ConferenceRepository();
+            editionRepository = new EditionRepository();
+            
+        }
+
         public void AddProposal(string[] keywords, string[] topics, string abstractFileName, string paperFileName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool existsUsername(string username)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Conference> getAllConferences()
+        {
+            return conferenceRepository.GetAll();
+        }
+
+        public List<Edition> getAllEditions()
+        {
+            return editionRepository.GetAll();
+
+        public List<Edition> getAllEditions()
         {
             throw new NotImplementedException();
         }
@@ -24,14 +56,26 @@ namespace CMSServer
             return System.AppDomain.CurrentDomain.BaseDirectory;
         }
 
+        public int getIdEdition(string edition)
+        {
+            throw new NotImplementedException();
+        }
+
         public bool Login(string username, string password)
         {
             throw new NotImplementedException();
         }
 
-        public void Register(string name, string affliation, string username, string password, string confirmPassword, string email, string role)
+        public void Register(string first_name, string last_name, string affilation, string username, string password, string email, string role)
         {
-            throw new NotImplementedException();
+            User new_user = new User(first_name, last_name, affilation, username, password, email, role);
+            userRepo.Save(new_user);
+
+            Random rnd = new Random();
+            int key = 1000 + rnd.Next(5000);
+            
+            SendEmail mail = new SendEmail(new System.Net.Mail.MailAddress(email), "Validation", key.ToString());
+            mail.send();
         }
 
         public void RegisterConference(string edition, string session, string deadlineUploadPaper, string deadlineUploadAbstract, string deadlineUploadInformations, string deadlineLicitationProcess)
