@@ -47,16 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\LoginChooseEditionController.cs" />
-    <Compile Include="LoginChooseEdition.cs">
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="AddProposalWindow.cs">
       <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="LoginChooseEdition.Designer.cs">
-      <DependentUpon>LoginChooseEdition.cs</DependentUpon>
     </Compile>
     <Compile Include="Controllers\AddProposalWindowController.cs" />
     <Compile Include="Controllers\MainClientController.cs" />
-    <Compile Include="ConnectServer.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Form2.cs">
       <SubType>Form</SubType>
@@ -69,6 +65,9 @@
     </Compile>
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddProposalWindow.Designer.cs">
+      <DependentUpon>AddProposalWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="ReviewPage.cs">
       <SubType>Form</SubType>
@@ -84,10 +83,6 @@
     <Compile Include="Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
-
-    <EmbeddedResource Include="LoginChooseEdition.resx">
-      <DependentUpon>LoginChooseEdition.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
@@ -98,6 +93,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReviewPage.resx">
       <DependentUpon>ReviewPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddProposalWindow.resx">
+      <DependentUpon>AddProposalWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -128,6 +126,10 @@
     <ProjectReference Include="..\CMSServer\CMSServer.csproj">
       <Project>{f01e3729-3343-4949-88f2-335a9a61364d}</Project>
       <Name>CMSServer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{F069FBE8-584A-4BF4-B774-16AD8E21FA37}</Project>
+      <Name>Model</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
