@@ -6,53 +6,43 @@ using System.Text;
 using System.Threading.Tasks;
 using NHibernate;
 using Persistence.utils;
+using NHibernate.Linq;
 
 namespace Persistence.Repository
 {
-    class UserRepository : IRepository<User>
+    public class UserRepository : GenericRepository<User>
     {
-        public void Save(User person)
-        {
-            using (ISession session = NHibernateHelper.OpenSession())
-            using (ITransaction transaction = session.BeginTransaction())
-            {
-                session.Save(person);
-                transaction.Commit();
-            }
-        }
-        public User Get(int id)
-        {
-            using (ISession session = NHibernateHelper.OpenSession())
-                return session.Get<User>(id);
-        }
-
-        public void Update(User person)
-        {
-            using (ISession session = NHibernateHelper.OpenSession())
-            using (ITransaction transaction = session.BeginTransaction())
-            {
-                session.Update(person);
-                transaction.Commit();
-            }
-        }
-
-        public void Delete(User person)
-        {
-            using (ISession session = NHibernateHelper.OpenSession())
-            using (ITransaction transaction = session.BeginTransaction())
-            {
-                session.Delete(person);
-                transaction.Commit();
-            }
-        }
-
-        public long RowCount()
+       public override long RowCount()
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
                 return session.QueryOver<User>().RowCountInt64();
             }
         }
-    
-}
+
+        public override List<User> GetAll()
+        {
+            using (ISession session = NHibernateHelper.OpenSession())
+            {
+                return  session.Query<User>().ToList();
+            }
+        }
+
+        public User GetByUsernameAndRole(string username, string role)
+        {
+            using (ISession session = NHibernateHelper.OpenSession())
+            {
+                List<User> users = session.Query<User>()
+                    .Where(u => u.Username.Equals(username) && u.Rol.Equals(role))
+                    .ToList();
+                if (users.Count.Equals(0))
+                {
+                    return null;
+                } else
+                {
+                    return users[0];
+                }
+            }
+        }
+    }
 }

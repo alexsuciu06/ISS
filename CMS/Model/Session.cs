@@ -40,7 +40,7 @@ namespace Model
             }
         }
 
-        internal virtual Presentation Presentation
+        public virtual Presentation Presentation
         {
             get
             {

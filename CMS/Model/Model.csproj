@@ -40,14 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Review.cs"/>
-     <Compile Include="Reviewer.cs"/>
-     <Compile Include="Recomandation.cs"/>
-    <Compile Include="Conference.cs"/>
+    <Compile Include="MetaInforamtionTopics.cs" />
+    <Compile Include="Review.cs" />
+    <Compile Include="Reviewer.cs" />
+    <Compile Include="Recomandation.cs" />
+    <Compile Include="Conference.cs" />
     <Compile Include="Edition.cs" />
     <Compile Include="Room.cs" />
     <Compile Include="Session.cs" />
     <Compile Include="Bid.cs" />
+    <Compile Include="Topic.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Presentation.cs" />
     <Compile Include="Abstract.cs" />

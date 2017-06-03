@@ -1,4 +1,7 @@
-﻿using System;
+﻿using CMS.Controlers;
+using CMS.Controllers;
+using CMS.Validations;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -6,13 +9,15 @@ namespace CMS
 {
     public partial class Register : Form
     {
-        public Register()
+        private MainClientController reg_controller;
+        public Register(MainClientController c)
         {
+            reg_controller = c;
             InitializeComponent();
             RegisterWatermark();
         }
 
-#region watermark
+        #region watermark
         private void RegisterWatermark()
         {
             UsernameTextbox.ForeColor = SystemColors.GrayText;
@@ -112,12 +117,43 @@ namespace CMS
 
         private void RegisterButton_Click(object sender, EventArgs e)
         {
-            //todo
+            string first_nume = FirstNameTextBox.Text;
+            string last_nume = LastNameTextBox.Text;
+            string affilation = AffilationTextBox.Text;
+            string username = UsernameTextbox.Text;
+            string password = PasswordTextbox.Text;
+            string confirm_password = ConfirmPasswordTextBox.Text;
+            string email = EmailTextBox.Text;
+            string role = comboBoxRole.Text;
+
+            
+            try
+            {
+                //validari pe date
+                ValidationData validation = new ValidationData();
+                validation.validateEmail(email);
+                validation.validatePassword(password, confirm_password);
+                //validation.validateUsername(reg_controller.getServer(), username);
+
+                //trimitere la controller datele validate
+                reg_controller.register(first_nume, last_nume, affilation, username, password, email, role);
+            }
+            catch(DataException exp) {
+                MessageBox.Show(exp.Message);
+            }
+                
+            
+            
         }
 
         private void CancelButton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

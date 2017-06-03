@@ -16,11 +16,26 @@ namespace Model
 
     public class Bid
     {
+        private int id;
         private User user;
         private BidEnum bid;
         private Paper paper;
 
-        public User User
+
+        public virtual int Id
+        {
+            get
+            {
+                return id;
+            }
+
+            set
+            {
+                id = value;
+            }
+        }
+
+        public virtual User User
         {
             get
             {
@@ -33,7 +48,7 @@ namespace Model
             }
         }
 
-        public Paper Paper
+        public virtual Paper Paper
         {
             get
             {
@@ -46,7 +61,7 @@ namespace Model
             }
         }
 
-        internal BidEnum BID
+        public virtual BidEnum BID
         {
             get
             {

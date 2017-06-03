@@ -82,6 +82,13 @@ namespace Persistence.utils
             mapper.AddMappings(new List<System.Type> { typeof(MetaInformationTopicsMap) });
             mapper.AddMappings(new List<System.Type> { typeof(PaperMap) });
             mapper.AddMappings(new List<System.Type> { typeof(PresentationMap) });
+            mapper.AddMappings(new List<System.Type> { typeof(ConferenceMap) });
+            mapper.AddMappings(new List<System.Type> { typeof(EditionMap) });
+            mapper.AddMappings(new List<System.Type> { typeof(BidMap) });
+            mapper.AddMappings(new List<System.Type> { typeof(RoomMap) });
+            mapper.AddMappings(new List<System.Type> { typeof(RecomandationMap) });
+            mapper.AddMappings(new List<System.Type> { typeof(ReviewerMap) });
+            mapper.AddMappings(new List<System.Type> { typeof(ReviewMap) });
             //Create and return a HbmMapping of the model mapping in code
             return mapper.CompileMappingForAllExplicitlyAddedEntities();
         }

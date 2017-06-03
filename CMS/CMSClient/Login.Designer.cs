@@ -34,7 +34,7 @@
             this.PasswordTextbox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.roleComboBox = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.ForgotLink = new System.Windows.Forms.LinkLabel();
             this.RegisterLink = new System.Windows.Forms.LinkLabel();
@@ -92,19 +92,19 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Password :";
             // 
-            // comboBox1
+            // roleComboBox
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.roleComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.roleComboBox.FormattingEnabled = true;
+            this.roleComboBox.Items.AddRange(new object[] {
             "Listener",
             "Reviewer",
             "Autor",
             "PC-Member"});
-            this.comboBox1.Location = new System.Drawing.Point(110, 128);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(183, 21);
-            this.comboBox1.TabIndex = 7;
+            this.roleComboBox.Location = new System.Drawing.Point(110, 128);
+            this.roleComboBox.Name = "roleComboBox";
+            this.roleComboBox.Size = new System.Drawing.Size(183, 21);
+            this.roleComboBox.TabIndex = 7;
             // 
             // label3
             // 
@@ -144,7 +144,7 @@
             this.Controls.Add(this.RegisterLink);
             this.Controls.Add(this.ForgotLink);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.roleComboBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.PasswordTextbox);
@@ -157,6 +157,7 @@
             this.Name = "LoginWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login window";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OnApplicationExit);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -171,7 +172,7 @@
         private System.Windows.Forms.TextBox PasswordTextbox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox roleComboBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.LinkLabel ForgotLink;
         private System.Windows.Forms.LinkLabel RegisterLink;

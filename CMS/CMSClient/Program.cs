@@ -1,22 +1,26 @@
-﻿using System;
-using System.Windows.Forms;
+﻿using CMS.Controllers;
+using CMSServer;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.Remoting.Channels;
 using System.Runtime.Remoting.Channels.Tcp;
-using System.Collections;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CMS
 {
-    public class Program
+    static class Program
     {
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
-
-        static ClientCtrl ctrl=null;
         [STAThread]
         static void Main()
         {
-            Application.ApplicationExit += new EventHandler(OnApplicationExit);
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
 
             BinaryServerFormatterSinkProvider serverProv = new BinaryServerFormatterSinkProvider();
             serverProv.TypeFilterLevel = System.Runtime.Serialization.Formatters.TypeFilterLevel.Full;
@@ -26,20 +30,14 @@ namespace CMS
             props["port"] = 0;
             TcpChannel channel = new TcpChannel(props, clientProv, serverProv);
             ChannelServices.RegisterChannel(channel, false);
-            IServices server =
-                (IServices)Activator.GetObject(typeof(IServices), "tcp://localhost:55555/Chat");
+            IServer server =
+                (IServer)Activator.GetObject(typeof(IServer), "tcp://localhost:55555/Chat");
 
-            ClientCtrl ctrl = new ClientCtrl(server);
+            MainClientController ctrl = new MainClientController(server);
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            LoginWindow loginWin = new LoginWindow(ctrl);
-            Application.Run(loginWin);
-        }
-
-        private static void OnApplicationExit(object sender, EventArgs e)
-        {
-            Console.WriteLine("TEST");
+            Application.Run(new LoginWindow(ctrl));
         }
     }
 }

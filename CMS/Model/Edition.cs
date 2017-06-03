@@ -6,11 +6,15 @@ using System.Threading.Tasks;
 
 namespace Model
 {
+    [Serializable]
     public class Edition
     {
         private int idEdition;
         private string name;
         private Conference conference;
+        private DateTime deadline;
+        private DateTime startDateTime;
+        private DateTime endDateTime;
 
         public virtual int IdEdition
         {
@@ -51,16 +55,59 @@ namespace Model
             }
         }
 
-        public Edition(int idEdition, string name, Conference conference)
+        public virtual DateTime Deadline
         {
-            this.IdEdition = idEdition;
+            get
+            {
+                return deadline;
+            }
+            set
+            {
+                deadline = value;
+            }
+        }
+
+        public virtual DateTime StartDateTime
+        {
+            get
+            {
+                return startDateTime;
+            }
+            set
+            {
+                startDateTime = value;
+            }
+        }
+
+        public virtual DateTime EndDateTime
+        {
+            get
+            {
+                return endDateTime;
+            }
+            set
+            {
+                endDateTime = value;
+            }
+        }
+
+        public Edition(string name, Conference conference)
+        {
+            this.Name = name;
+            this.Conference = conference;
+        }
+
+        public Edition(string name, Conference conference, DateTime deadline, DateTime start, DateTime end)
+        {
+            this.deadline = deadline;
+            this.startDateTime = start;
+            this.endDateTime = end;
             this.Name = name;
             this.Conference = conference;
         }
 
         public Edition()
         {
-            this.IdEdition = 0;
             this.Name = "";
             this.Conference = null;
         }

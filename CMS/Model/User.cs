@@ -6,26 +6,35 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public enum Role {Author, Reviewer}
+    public enum Role {Author, Reviewer, Listener, PCMember}
 
+    [Serializable]
     public class User
     {
         private int idUser;
+        private string first_name;
+        private string last_name;
         private string username;
         private string password;
         private string email;
+        private string affilation;
+        private bool is_validated = false;
         private Role role;
 
         public User()
         {
         }
 
-        public User(string username, string password, string email, string role)
+        public User(string fist_name, string last_name, string username, string affilation, string password, string email, string role)
         {
+            this.First_name = First_name;
+            this.Last_name = last_name;
             this.username = username;
             this.password = password;
+            this.Affilation = affilation;
             this.email = email;
-            Enum.TryParse(role, out Role myStatus);
+            Role myStatus = default(Role);
+            Enum.TryParse(role, out myStatus);
             this.role = myStatus;
         }
 
@@ -69,7 +78,8 @@ namespace Model
 
             set
             {
-                Enum.TryParse(value, out Role myStatus);
+                Role myStatus = default(Role);
+                Enum.TryParse(value, out myStatus);
                 role = myStatus;
             }
         }
@@ -78,6 +88,58 @@ namespace Model
         {
             get { return role; }
             set { role = value; }
+        }
+
+        public virtual bool Is_validated
+        {
+            get
+            {
+                return is_validated;
+            }
+
+            set
+            {
+                is_validated = value;
+            }
+        }
+
+        public virtual string First_name
+        {
+            get
+            {
+                return first_name;
+            }
+
+            set
+            {
+                first_name = value;
+            }
+        }
+
+        public virtual string Last_name
+        {
+            get
+            {
+                return last_name;
+            }
+
+            set
+            {
+                last_name = value;
+            }
+        }
+
+        public virtual string Affilation
+        {
+            get
+            {
+                return affilation;
+            }
+
+            set
+            {
+                affilation = value;
+            }
         }
 
         public override bool Equals(Object ob)
