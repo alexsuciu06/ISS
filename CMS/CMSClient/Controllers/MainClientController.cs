@@ -1,5 +1,10 @@
+<<<<<<< Updated upstream
 ﻿using CMSServer;
 using Model;
+=======
+﻿using CMS.Controlers;
+using CMSServer;
+>>>>>>> Stashed changes
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,14 +17,22 @@ namespace CMS.Controllers
     {
         private IServer server;
         private int idCurrentEdition;
+
         AddProposalWindowController addProposalCtr;
         ChooseEditionController chooseEditionController;
+        RegisterController registerCtr;
+
 
         public MainClientController(IServer server)
         {
             this.server = server;
             addProposalCtr = new AddProposalWindowController(server);
             chooseEditionController = new ChooseEditionController(server);
+            this.registerCtr = new RegisterController(server);
+        }
+        public void register(string first_name, string last_name, string affilation, string username, string password, string email, string role)
+        {
+            registerCtr.register(first_name, last_name, affilation, username, password, email, role);
         }
 
         public void SubmitProposal(string[] keywords, string[] topics, string path_to_abstract, string path_to_paper) {

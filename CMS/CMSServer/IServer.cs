@@ -12,7 +12,7 @@ using System.Threading.Tasks;
          void RegisterConference(string edition, string session, string deadlineUploadPaper, string deadlineUploadAbstract, string deadlineUploadInformations
              , string deadlineLicitationProcess);
          bool Login(string username, string password);
-         void Register(string name, string affliation, string username, string password, string confirmPassword, string email, string role);
+         void Register(string first_name, string last_name, string affilation, string username, string password, string email, string role);
          void SendEmailConfirmation(string username, string passwoerd, string email);
          bool existsUsername(string username);
          void UploadPaper(string title, string keyWords, string topics, string authorsList, string infAboutAuthors);

@@ -13,7 +13,8 @@ namespace CMSServer
     {
         private EditionRepository editionRepository;
         private ConferenceRepository conferenceRepository;
-
+	    private UserRepository userRepo = new UserRepository();
+			
         public ServerImpl()
         {
             conferenceRepository = new ConferenceRepository();
@@ -39,6 +40,10 @@ namespace CMSServer
         public List<Edition> getAllEditions()
         {
             return editionRepository.GetAll();
+
+        public List<Edition> getAllEditions()
+        {
+            throw new NotImplementedException();
         }
 
         public List<Paper> getAllPapers(int idEdition)
@@ -61,9 +66,16 @@ namespace CMSServer
             throw new NotImplementedException();
         }
 
-        public void Register(string name, string affliation, string username, string password, string confirmPassword, string email, string role)
+        public void Register(string first_name, string last_name, string affilation, string username, string password, string email, string role)
         {
-            throw new NotImplementedException();
+            User new_user = new User(first_name, last_name, affilation, username, password, email, role);
+            userRepo.Save(new_user);
+
+            Random rnd = new Random();
+            int key = 1000 + rnd.Next(5000);
+            
+            SendEmail mail = new SendEmail(new System.Net.Mail.MailAddress(email), "Validation", key.ToString());
+            mail.send();
         }
 
         public void RegisterConference(string edition, string session, string deadlineUploadPaper, string deadlineUploadAbstract, string deadlineUploadInformations, string deadlineLicitationProcess)

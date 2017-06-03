@@ -48,8 +48,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< Updated upstream
-    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="AddProposalWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +90,8 @@
     <Compile Include="Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="LoginChooseEdition.resx">
+      <DependentUpon>LoginChooseEdition.cs</DependentUpon>
     <EmbeddedResource Include="ChooseEdition.resx">
       <DependentUpon>ChooseEdition.cs</DependentUpon>
     </EmbeddedResource>

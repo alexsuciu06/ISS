@@ -18,6 +18,10 @@ namespace Persistence.DAO
             Property(x => x.Password);
             Property(x => x.Email);
             Property(x => x.Rol);
+            Property(x => x.Affilation);
+            Property(x => x.First_name);
+            Property(x => x.Last_name);
+            Property(x => x.Is_validated);
         }
     }
 }

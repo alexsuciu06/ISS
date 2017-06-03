@@ -1,4 +1,5 @@
 ﻿using CMS.Controlers;
+using CMS.Controllers;
 using CMS.Validations;
 using System;
 using System.Drawing;
@@ -8,9 +9,10 @@ namespace CMS
 {
     public partial class Register : Form
     {
-        private RegisterController reg_controller;
-        public Register()
+        private MainClientController reg_controller;
+        public Register(MainClientController c)
         {
+            reg_controller = c;
             InitializeComponent();
             RegisterWatermark();
         }
@@ -131,7 +133,7 @@ namespace CMS
                 ValidationData validation = new ValidationData();
                 validation.validateEmail(email);
                 validation.validatePassword(password, confirm_password);
-                validation.validateUsername(reg_controller.getServer(), username);
+                //validation.validateUsername(reg_controller.getServer(), username);
 
                 //trimitere la controller datele validate
                 reg_controller.register(first_nume, last_nume, affilation, username, password, email, role);
