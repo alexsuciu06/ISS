@@ -22,6 +22,7 @@ namespace Persistence.DAO
             Property(x => x.First_name);
             Property(x => x.Last_name);
             Property(x => x.Is_validated);
+            Property(x => x.Key);
         }
     }
 }

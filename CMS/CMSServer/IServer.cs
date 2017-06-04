@@ -22,5 +22,6 @@ using System.Threading.Tasks;
          List<Conference> getAllConferences();
          int getIdEdition(string edition);
          List<Paper> getAllPapers(int idEdition);
+        User validate(string email, string key);
      }
  }

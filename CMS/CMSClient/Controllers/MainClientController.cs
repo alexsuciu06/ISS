@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CMS.Validations;
 
 namespace CMS.Controllers
 {
@@ -32,6 +33,15 @@ namespace CMS.Controllers
         {
             registerCtr.register(first_name, last_name, affilation, username, password, email, role);
             loginCtr = new LoginController(server);
+        }
+
+        public void validation(string email, string key)
+        {
+            current_user = server.validate(email, key);
+            if (current_user == null)
+            {
+                throw new DataException("Key is not valid");
+            }
         }
 
         public void SubmitProposal(string[] keywords, string[] topics, string path_to_abstract, string path_to_paper) {

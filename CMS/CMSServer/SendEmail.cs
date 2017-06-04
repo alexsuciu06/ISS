@@ -14,12 +14,12 @@ namespace CMSServer
         MailAddress fromAddress = new MailAddress("issproject001@gmail.com");
         const string fromPassword = "proiectiss";
 
-        
+
         private MailAddress toAddress;
         private string subject;
         private string message;
 
-        public SendEmail(MailAddress toAddress, string subject,string message)
+        public SendEmail(MailAddress toAddress, string subject, string message)
         {
             this.toAddress = toAddress;
             this.subject = subject;
@@ -44,12 +44,9 @@ namespace CMSServer
                 Subject = subject,
                 Body = message
             })
-        {
-            smtp.Send(msg);
+            {
+                smtp.Send(msg);
+            }
         }
-}
-
-        
-
     }
 }
