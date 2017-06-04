@@ -14,7 +14,7 @@ namespace CMS.Controllers
     {
         private IServer server;
         private int idCurrentEdition;
-
+        BiddingPageController bidController;
         AddProposalWindowController addProposalCtr;
         ChooseEditionController chooseEditionController;
         RegisterController registerCtr;
@@ -24,9 +24,10 @@ namespace CMS.Controllers
         public MainClientController(IServer server)
         {
             this.server = server;
-            addProposalCtr = new AddProposalWindowController(server);
-            chooseEditionController = new ChooseEditionController(server);
+            this.addProposalCtr = new AddProposalWindowController(server);
+            this.chooseEditionController = new ChooseEditionController(server);
             this.registerCtr = new RegisterController(server);
+            this.bidController = new BiddingPageController(server);
         }
 
         public void register(string first_name, string last_name, string affilation, string username, string password, string email, string role)
@@ -76,6 +77,17 @@ namespace CMS.Controllers
         public void Login(string username, string password, string role)
         {
             current_user = loginCtr.Login(username, password, role);
+        }
+
+
+        public void AddBidding(int idPaper, string bidEnum)
+        {
+            bidController.AddBidding(idPaper, bidEnum, current_user);
+        }
+
+        public List<Paper> GetAllPapers()
+        {
+            return bidController.GetAllPapers();
         }
     }
 }

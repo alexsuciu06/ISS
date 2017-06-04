@@ -15,13 +15,18 @@ namespace CMSServer
     {
         private EditionRepository editionRepository;
         private ConferenceRepository conferenceRepository;
-	private UserRepository userRepo = new UserRepository();
+	    private UserRepository userRepo = new UserRepository();
+        private PaperRepository paperRepo;
+        private BidRepository bidRepo;
 			
         public ServerImpl()
         {
             conferenceRepository = new ConferenceRepository();
             editionRepository = new EditionRepository();
-            
+            paperRepo = new PaperRepository();
+            bidRepo = new BidRepository();
+
+
         }
         
         PaperRepository paerRepo = new PaperRepository();
@@ -104,6 +109,29 @@ namespace CMSServer
         public void UploadPaper(string title, string keyWords, string topics, string authorsList, string infAboutAuthors)
         {
             throw new NotImplementedException();
+        }
+
+        public Paper findPaperById(int id)
+        {
+            return paperRepo.Get(id);
+        }
+
+        public void AddBidding(Paper paper, BidEnum bidenum, User user)
+        {
+            bidRepo.Save(new Bid(user, bidenum, paper));
+        }
+
+        public List<Paper> GetAllPapers()
+        {
+            try {
+
+            return paperRepo.GetAll();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            return null;
         }
     }
 }
