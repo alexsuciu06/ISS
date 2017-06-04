@@ -13,7 +13,7 @@ namespace Model
         REFUZE_TO_EVALUATE,
         NULL
     };
-
+    [Serializable]
     public class Bid
     {
         private int id;

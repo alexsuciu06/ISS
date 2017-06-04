@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
+    [Serializable]
     public class Paper
     {
         private int idPaper;
@@ -83,7 +84,7 @@ namespace Model
 
         public override string ToString()
         {
-            return " ";
+            return Meta.Name;
         }
     }
 }

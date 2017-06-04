@@ -38,6 +38,7 @@ namespace CMS
             string UPLOADS_PATH = SERVER_HOME_PATH + "uploads\\" 
                 + current.Conference.IdConference + "\\" 
                 + current.IdEdition + "\\";
+            server.CheckOrCreateDir(UPLOADS_PATH);
             try
             {
                 File.Copy(local_path, UPLOADS_PATH + Path.GetFileName(local_path));
