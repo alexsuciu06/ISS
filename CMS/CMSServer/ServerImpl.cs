@@ -76,14 +76,19 @@ namespace CMSServer
 
         public void Register(string first_name, string last_name, string affilation, string username, string password, string email, string role)
         {
-            User new_user = new User(first_name, last_name, affilation, username, password, email, role);
-            userRepo.Save(new_user);
-
             Random rnd = new Random();
             int key = 1000 + rnd.Next(5000);
+
+            User new_user = new User(first_name, last_name, affilation, username, password, email, role,key);
+            userRepo.Save(new_user);
             
             SendEmail mail = new SendEmail(new System.Net.Mail.MailAddress(email), "Validation", key.ToString());
             mail.send();
+        }
+
+        public User validate(string email, string key)
+        {
+            return userRepo.UpdateValidationState(email, key);
         }
 
         public void RegisterConference(string edition, string session, string deadlineUploadPaper, string deadlineUploadAbstract, string deadlineUploadInformations, string deadlineLicitationProcess)

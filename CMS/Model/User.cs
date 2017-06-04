@@ -18,6 +18,7 @@ namespace Model
         private string password;
         private string email;
         private string affilation;
+        private int key;
         private bool is_validated = false;
         private Role role;
 
@@ -25,14 +26,15 @@ namespace Model
         {
         }
 
-        public User(string fist_name, string last_name, string username, string affilation, string password, string email, string role)
+        public User(string fist_name, string last_name, string affilation, string username, string password, string email, string role,int key)
         {
-            this.First_name = First_name;
+            this.First_name = first_name;
             this.Last_name = last_name;
+            this.Affilation = affilation;
             this.username = username;
             this.password = password;
-            this.Affilation = affilation;
             this.email = email;
+            this.Key = key;
             Role myStatus = default(Role);
             Enum.TryParse(role, out myStatus);
             this.role = myStatus;
@@ -139,6 +141,19 @@ namespace Model
             set
             {
                 affilation = value;
+            }
+        }
+
+        public virtual int Key
+        {
+            get
+            {
+                return key;
+            }
+
+            set
+            {
+                key = value;
             }
         }
 

@@ -137,6 +137,9 @@ namespace CMS
 
                 //trimitere la controller datele validate
                 reg_controller.register(first_nume, last_nume, affilation, username, password, email, role);
+                ValidationWindow validationWindow = new ValidationWindow(email, reg_controller);
+                validationWindow.Show();
+                this.Hide();
             }
             catch(DataException exp) {
                 MessageBox.Show(exp.Message);
