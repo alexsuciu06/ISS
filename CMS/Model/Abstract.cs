@@ -7,6 +7,7 @@ using System.IO;
 
 namespace Model
 {
+    [Serializable]
     public class Abstract
     {
         private int idAbstract;

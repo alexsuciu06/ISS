@@ -13,8 +13,8 @@ namespace CMS.Controllers
     public class MainClientController
     {
         private IServer server;
-        private int idCurrentEdition;
         BiddingPageController bidController;
+        Edition currentEdition;
         AddProposalWindowController addProposalCtr;
         ChooseEditionController chooseEditionController;
         RegisterController registerCtr;
@@ -28,6 +28,12 @@ namespace CMS.Controllers
             this.chooseEditionController = new ChooseEditionController(server);
             this.registerCtr = new RegisterController(server);
             this.bidController = new BiddingPageController(server);
+            loginCtr = new LoginController(server);
+        }
+
+        public List<Review> GetAssignedReviews()
+        {
+            return server.AllAssignedReviews(1);
         }
 
         public void register(string first_name, string last_name, string affilation, string username, string password, string email, string role)
@@ -46,7 +52,7 @@ namespace CMS.Controllers
         }
 
         public void SubmitProposal(string[] keywords, string[] topics, string path_to_abstract, string path_to_paper) {
-            addProposalCtr.SubmitProposal(keywords, topics, path_to_abstract, path_to_paper, new Edition());
+            addProposalCtr.SubmitProposal(keywords, topics, path_to_abstract, path_to_paper, currentEdition);
         }
 
 
@@ -55,16 +61,16 @@ namespace CMS.Controllers
             return chooseEditionController.GetAll();
         }
 
-        public int IdCurrentEdition
+        public Edition CurrentEdition
         {
             get
             {
-                return idCurrentEdition;
+                return currentEdition;
             }
 
             set
             {
-                this.idCurrentEdition = value;
+                this.currentEdition = value;
             }
         } 
 

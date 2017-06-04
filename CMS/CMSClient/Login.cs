@@ -93,6 +93,8 @@ namespace CMS
                     roleComboBox.Text
                  );
                 this.Hide();
+                ChooseEdition chooseEditionWin = new ChooseEdition(ctr);
+                chooseEditionWin.Show();
             } catch ( DataException ex )
             {
                 MessageBox.Show(ex.Message, "Can't log you in!", MessageBoxButtons.OK);

@@ -15,18 +15,22 @@ namespace CMSServer
     {
         private EditionRepository editionRepository;
         private ConferenceRepository conferenceRepository;
-	    private UserRepository userRepo = new UserRepository();
         private PaperRepository paperRepo;
         private BidRepository bidRepo;
-			
+        private UserRepository userRepo;
+        private ReviewRepository reviewRepo;
+        private ReviewerRepository reviewerRepo;
+
+
         public ServerImpl()
         {
             conferenceRepository = new ConferenceRepository();
             editionRepository = new EditionRepository();
             paperRepo = new PaperRepository();
             bidRepo = new BidRepository();
-
-
+            userRepo = new UserRepository();
+            reviewRepo = new ReviewRepository();
+            reviewerRepo = new ReviewerRepository();
         }
         
         PaperRepository paerRepo = new PaperRepository();
@@ -111,6 +115,7 @@ namespace CMSServer
             throw new NotImplementedException();
         }
 
+
         public Paper findPaperById(int id)
         {
             return paperRepo.Get(id);
@@ -132,6 +137,26 @@ namespace CMSServer
                 Console.WriteLine(e.Message);
             }
             return null;
+
+        public void CheckOrCreateDir(string dir_path)
+        {
+            try
+            {
+                if (Directory.Exists(dir_path))
+                {
+                    return;
+                }
+                DirectoryInfo di = Directory.CreateDirectory(dir_path);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("The process failed: {0}", e.ToString());
+            }
+        }
+
+        public List<Review> AllAssignedReviews(int reviewer_id)
+        {
+            return reviewRepo.AssignedReviews(reviewer_id);
         }
     }
 }

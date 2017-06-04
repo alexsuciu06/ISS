@@ -13,7 +13,7 @@ namespace Persistence.DAO
     {
         public ReviewMap()
         {
-            Id(x => x.IdReview, m => m.Generator(Generators.Identity)/* m => m.Generator(Generators.Identity)*/);
+            Id(x => x.IdReview, m => m.Generator(Generators.Identity));
             this.ManyToOne(
               x => x.Reviewer,
               map =>
@@ -22,6 +22,7 @@ namespace Persistence.DAO
                   map.Fetch(FetchKind.Join);
                   map.ForeignKey("none");
                   map.Lazy(LazyRelation.NoLazy);
+                  map.NotFound(NotFoundMode.Ignore);
               });
             Property(x => x.Grade);
             this.ManyToOne(

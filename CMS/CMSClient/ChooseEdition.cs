@@ -52,8 +52,11 @@ namespace CMS
         {
             if (dataGridView1.SelectedRows.Count != 0)
             {
-                String data = dataGridView1.SelectedRows[0].Cells["IdEdition"].ToString();
-                ctr.IdCurrentEdition = Int32.Parse(data);
+                Edition edition = (Edition)dataGridView1.SelectedRows[0].DataBoundItem;
+                ctr.CurrentEdition = edition;
+                AddProposalWindow proposalWin = new AddProposalWindow(ctr);
+                proposalWin.Show();
+                this.Hide();
             }
         }
 

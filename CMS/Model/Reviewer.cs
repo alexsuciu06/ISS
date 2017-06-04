@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
+    [Serializable]
     public class Reviewer
     {
         private int idReviewer;
@@ -68,12 +69,16 @@ namespace Model
         {
             return this.idReviewer + " " + this.name + this.affilation;
         }
+
         public override bool Equals(object other)
         {
             if (other != null && other.GetType()==this.GetType())
             {
                 Reviewer v = (Reviewer)other;
-                if (v.idReviewer != this.idReviewer || v.name != this.name || v.affilation != this.affilation)
+                if (v.idReviewer != this.idReviewer || 
+                    !(v.name.Equals(this.name)) || 
+                    !(v.affilation.Equals(this.affilation))
+                )
                     return false;
                 return true;
             }
