@@ -18,6 +18,11 @@ namespace Model
             this.Name = name;
         }
 
+        public Conference(string name)
+        {
+            this.Name = name;
+        }
+
         public virtual int IdConference
         {
             get

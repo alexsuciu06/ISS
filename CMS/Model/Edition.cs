@@ -106,6 +106,12 @@ namespace Model
             this.Conference = conference;
         }
 
+        public Edition(string name, Conference conference)
+        {
+            this.Name = name;
+            this.Conference = conference;
+        }
+
         public Edition()
         {
             this.Name = "";
