@@ -23,5 +23,8 @@ using System.Threading.Tasks;
          int getIdEdition(string edition);
          List<Paper> getAllPapers(int idEdition);
         User validate(string email, string key);
+         Paper findPaperById(int id);
+         void AddBidding(Paper paper, BidEnum bidenum, User user);
+         List<Paper> GetAllPapers();
      }
  }
