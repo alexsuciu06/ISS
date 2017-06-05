@@ -12,9 +12,9 @@ namespace Model
         private int idEdition;
         private string name;
         private Conference conference;
-        private DateTime deadline;
-        private DateTime startDateTime;
-        private DateTime endDateTime;
+        private string deadline;
+        private string startDateTime;
+        private string endDateTime;
 
         public virtual int IdEdition
         {
@@ -55,7 +55,7 @@ namespace Model
             }
         }
 
-        public virtual DateTime Deadline
+        public virtual string Deadline
         {
             get
             {
@@ -67,7 +67,7 @@ namespace Model
             }
         }
 
-        public virtual DateTime StartDateTime
+        public virtual string StartDateTime
         {
             get
             {
@@ -79,7 +79,7 @@ namespace Model
             }
         }
 
-        public virtual DateTime EndDateTime
+        public virtual string EndDateTime
         {
             get
             {
@@ -97,7 +97,7 @@ namespace Model
             this.Conference = conference;
         }
 
-        public Edition(string name, Conference conference, DateTime deadline, DateTime start, DateTime end)
+        public Edition(string name, Conference conference, string deadline, string start, string end)
         {
             this.deadline = deadline;
             this.startDateTime = start;

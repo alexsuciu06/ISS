@@ -17,6 +17,12 @@ namespace Model
             this.IdRecomandation = idRecomandation;
             this.File = file;
         }
+
+        public Recomandation(string file)
+        {
+            this.File = file;
+        }
+
         public Recomandation()
         {
             this.IdRecomandation = 1;

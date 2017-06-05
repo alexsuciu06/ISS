@@ -32,6 +32,7 @@
             this.labelSession = new System.Windows.Forms.Label();
             this.RegisterButton = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // DetailsPanel
@@ -54,10 +55,10 @@
             // 
             // RegisterButton
             // 
-            this.RegisterButton.Location = new System.Drawing.Point(110, 297);
+            this.RegisterButton.Location = new System.Drawing.Point(74, 280);
             this.RegisterButton.Margin = new System.Windows.Forms.Padding(1);
             this.RegisterButton.Name = "RegisterButton";
-            this.RegisterButton.Size = new System.Drawing.Size(75, 28);
+            this.RegisterButton.Size = new System.Drawing.Size(125, 28);
             this.RegisterButton.TabIndex = 0;
             this.RegisterButton.Text = "Register";
             this.RegisterButton.UseVisualStyleBackColor = true;
@@ -70,11 +71,22 @@
             this.listBox1.Size = new System.Drawing.Size(213, 173);
             this.listBox1.TabIndex = 7;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(74, 321);
+            this.button1.Margin = new System.Windows.Forms.Padding(1);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(125, 32);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "New Session...";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // ListenerRegistration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(581, 398);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.RegisterButton);
             this.Controls.Add(this.labelSession);
@@ -92,5 +104,6 @@
         private System.Windows.Forms.Label labelSession;
         private System.Windows.Forms.Button RegisterButton;
         private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -13,6 +13,7 @@ namespace Model
         private string file;
         private Abstract abs;
         private PaperMetaInformation meta;
+        private Edition edition;
 
         public virtual int Id
         {
@@ -24,6 +25,19 @@ namespace Model
             protected set
             {
                 idPaper = value;
+            }
+        }
+
+        public virtual Edition Edition
+        {
+            get
+            {
+                return edition;
+            }
+
+            set
+            {
+                edition = value;
             }
         }
 
@@ -74,8 +88,9 @@ namespace Model
             this.Meta = null;
         }
 
-        public Paper(string file, Abstract abs, PaperMetaInformation meta)
+        public Paper(string file, Abstract abs, PaperMetaInformation meta, Edition ed)
         {
+            this.Edition = ed;
             this.Id = idPaper;
             this.File = file;
             this.Abs = abs;

@@ -6,21 +6,24 @@ using System.Threading.Tasks;
 
 namespace Model
 {
+    [Serializable]
     public class Presentation
     {
       
         private int idPresentation;
         private Paper paper;
+        private Session session;
         private DateTime time;
 
         public Presentation()
         {
         }
 
-        public Presentation(Paper idPaper, DateTime time)
+        public Presentation(Paper paper, DateTime time, Session session)
         {
-            this.paper = idPaper;
+            this.paper = paper;
             this.time = time;
+            this.session = session;
         }
 
 
@@ -40,6 +43,12 @@ namespace Model
         {
             get { return time; }
             set { time = value; }
+        }
+
+        public virtual Session Session
+        {
+            get { return session; }
+            set { session = value; }
         }
 
         public override string ToString()

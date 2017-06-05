@@ -10,7 +10,7 @@ namespace Model
     {
         PLEASED_TO_REVIEW,
         COULD_EVALUATE,
-        REFUZE_TO_EVALUATE,
+        REFUSE_TO_EVALUATE,
         NULL
     };
     [Serializable]

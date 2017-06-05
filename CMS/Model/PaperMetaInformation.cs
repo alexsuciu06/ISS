@@ -12,6 +12,8 @@ namespace Model
         private int idPaperMetaInformation;
         private string name;
         private string keywords;
+        private string co_authors;
+        private User author;
 
         public PaperMetaInformation()
         {
@@ -20,8 +22,10 @@ namespace Model
             this.keywords = "";
         }
 
-        public PaperMetaInformation( string name, string keywords)
+        public PaperMetaInformation( string name, string keywords, User author, string co_authors)
         {
+            this.author = author;
+            this.co_authors = co_authors;
             this.name = name;
             this.keywords = keywords;
         }
@@ -58,7 +62,29 @@ namespace Model
             }
         }
 
-       
+        public virtual string CoAuthors
+        {
+            get
+            {
+                return co_authors;
+            }
+            set
+            {
+                co_authors = value;
+            }
+        }
+
+        public virtual User Author
+        {
+            get
+            {
+                return author;
+            }
+            set
+            {
+                author = value;
+            }
+        }
 
         public override string ToString()
         {
@@ -72,7 +98,8 @@ namespace Model
             if (!(obj is Abstract))
                 return false;
             PaperMetaInformation pmi = (PaperMetaInformation)obj;
-            return idPaperMetaInformation == pmi.idPaperMetaInformation && name == pmi.name;
+            return idPaperMetaInformation == pmi.idPaperMetaInformation && name == pmi.name 
+                &&pmi.co_authors.Equals(CoAuthors) && pmi.Author.Equals(Author);
         }
 
         public override int GetHashCode()

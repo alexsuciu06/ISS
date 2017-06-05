@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace Model
 {
+    [Serializable]
     public class Room
     {
         private int idRoom;
         private int roomNr;
         private int seats;
 
-        public Room(int idRoom, int roomNr, int seats)
+        public Room(int roomNr, int seats)
         {
-            this.IdRoom = idRoom;
             this.RoomNr = roomNr;
             this.Seats = seats;
         }

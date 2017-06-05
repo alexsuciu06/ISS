@@ -28,5 +28,15 @@ namespace Persistence.Repository
                 return session.Query<Presentation>().ToList();
             }
         }
+
+        public List<Presentation> AllForSession(int id_session)
+        {
+            using (ISession session = NHibernateHelper.OpenSession())
+            {
+                return session.Query<Presentation>()
+                    .Where(p => p.Session.IdSession.Equals(id_session))
+                    .ToList();
+            }
+        }
     }
 }

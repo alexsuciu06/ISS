@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using CMSServer;
 using CMS.Validations;
 using Model;
+using System.Net.Sockets;
+using System.Runtime.Remoting;
 
 namespace CMS.Controllers
 {
@@ -32,7 +34,19 @@ namespace CMS.Controllers
             {
                 throw new DataException("You must select a role");
             }
-            User user = server.Login(username, password, role);
+            User user = null;
+            try
+            {
+                user = server.Login(username, password, role);
+            }
+            catch (SocketException)
+            {
+                throw new DataException("Server is unavailable!");
+            }
+            catch (RemotingException)
+            {
+                throw new DataException("Server is unavailable!");
+            }
             if (user == null)
             {
                 throw new DataException("This username does not exist with this role");

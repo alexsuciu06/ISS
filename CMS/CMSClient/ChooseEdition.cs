@@ -20,7 +20,7 @@ namespace CMS
         {
             InitializeComponent();
             // dataGridView2.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
-            dataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            //dataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             this.ctr = ctr;
         }
 
@@ -38,9 +38,8 @@ namespace CMS
         {
             try
             {
-                dataGridView2.DataSource = ctr.GetAllConferences();
-  
-                
+                listBox1.DataSource = ctr.GetAllConferences();
+                listBox1.DisplayMember = "Name";
             }
             catch(Exception ex)
             {
@@ -50,26 +49,20 @@ namespace CMS
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count != 0)
-            {
-                Edition edition = (Edition)dataGridView1.SelectedRows[0].DataBoundItem;
-                ctr.CurrentEdition = edition;
-                AddProposalWindow proposalWin = new AddProposalWindow(ctr);
-                proposalWin.Show();
-                this.Hide();
-            }
+            ///
         }
 
         private void dataGridView2_SelectionChanged(object sender, EventArgs e)
         {
 
-            if (dataGridView2.SelectedRows.Count > 0)
+            if (listBox1.SelectedItem != null)
             {
                 try
                 {
-                    String data = dataGridView2.SelectedRows[0].Cells["IdConference"].Value.ToString();
-                    var results = ctr.GetAllEditions().Where(o => o.Conference.IdConference == Int32.Parse(data)).ToList();
+                    ;
+                    var results = ctr.GetAllEditions().Where(o => o.Conference.IdConference == (listBox1.SelectedItem as Conference).IdConference).ToList();
                     dataGridView1.DataSource = (List<Edition>)results;
+                    dataGridView1.Columns["IdEdition"].Visible = false;
                 }
                 catch(Exception ex)
                 {
@@ -82,6 +75,18 @@ namespace CMS
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count != 0)
+            {
+                Edition edition = (Edition)dataGridView1.SelectedRows[0].DataBoundItem;
+                ctr.CurrentEdition = edition;
+                ControlPanel panel = new ControlPanel(ctr, this);
+                panel.Show();
+                this.Hide();
+            }
         }
     }
 }

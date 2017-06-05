@@ -24,6 +24,15 @@ namespace Persistence.DAO
                 map.Lazy(LazyRelation.NoLazy);
             });
             Property(x => x.Time);
+            this.ManyToOne(
+               x => x.Session,
+               map =>
+               {
+                   map.Column("Session");
+                   map.Fetch(FetchKind.Join);
+                   map.ForeignKey("none");
+                   map.Lazy(LazyRelation.NoLazy);
+               });
         }
     }
 }

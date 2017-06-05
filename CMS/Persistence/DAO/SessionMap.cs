@@ -25,16 +25,6 @@ namespace Persistence.DAO
             });
 
             this.ManyToOne(
-                x => x.Presentation,
-                map =>
-                {
-                    map.Column("Presentation");
-                    map.Fetch(FetchKind.Join);
-                    map.ForeignKey("none");
-                    map.Lazy(LazyRelation.NoLazy);
-            });
-
-            this.ManyToOne(
                 x => x.User,
                 map =>
                 {

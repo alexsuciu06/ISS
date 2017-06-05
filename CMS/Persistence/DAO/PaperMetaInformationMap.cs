@@ -13,7 +13,17 @@ namespace Persistence.DAO
     {
         public PaperMetaInformationMap()
         {
-            Id(x => x.Id, m => m.Generator(Generators.Identity)/* m => m.Generator(Generators.Identity)*/);
+            Id(x => x.Id, m => m.Generator(Generators.Identity));
+            this.ManyToOne(
+               x => x.Author,
+               map =>
+               {
+                   map.Column("Author");
+                   map.Fetch(FetchKind.Join);
+                   map.ForeignKey("none");
+                   map.Lazy(LazyRelation.NoLazy);
+           });
+            Property(x => x.CoAuthors);
             Property(x => x.Name);
             Property(x => x.Keywords);
         }

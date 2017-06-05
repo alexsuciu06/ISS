@@ -28,5 +28,14 @@ namespace Persistence.Repository
                 return session.Query<Reviewer>().ToList();
             }
         }
+
+        public Reviewer GetById(int id)
+        {
+            using (ISession session = NHibernateHelper.OpenSession())
+            {
+                return session.Query<Reviewer>().Where( r => r.IdReviewer == id )
+                    . ToList()[0];
+            }
+        }
     }
 }
