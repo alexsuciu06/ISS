@@ -38,5 +38,17 @@ namespace Persistence.Repository
             }
         }
 
+
+
+        public object GetForPaper(Paper p)
+        {
+            using (ISession session = NHibernateHelper.OpenSession())
+            {
+                return session.Query<Review>()
+                    .Where(r => r.Paper.Id.Equals(p.Id))
+                    .ToList();
+            }
+        }
+
     }
 }

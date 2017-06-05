@@ -52,7 +52,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(47, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(136, 24);
+            this.label1.Size = new System.Drawing.Size(158, 26);
             this.label1.TabIndex = 1;
             this.label1.Text = "Select a paper:";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -63,7 +63,7 @@
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(611, 151);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(238, 28);
+            this.comboBox1.Size = new System.Drawing.Size(238, 30);
             this.comboBox1.TabIndex = 2;
             // 
             // button1
@@ -94,19 +94,20 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(607, 76);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(264, 24);
+            this.label2.Size = new System.Drawing.Size(304, 26);
             this.label2.TabIndex = 5;
             this.label2.Text = "Choose one of the following:   ";
             // 
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(293, 383);
+            this.button3.Location = new System.Drawing.Point(232, 383);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(146, 33);
+            this.button3.Size = new System.Drawing.Size(207, 33);
             this.button3.TabIndex = 6;
             this.button3.Text = "See Abstract:";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // BiddingPage
             // 

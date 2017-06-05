@@ -81,6 +81,7 @@ namespace Persistence.utils
             mapper.AddMappings(new List<System.Type> { typeof(PaperMetaInformationMap) });
             mapper.AddMappings(new List<System.Type> { typeof(MetaInformationTopicsMap) });
             mapper.AddMappings(new List<System.Type> { typeof(PaperMap) });
+            mapper.AddMappings(new List<System.Type> { typeof(SessionMap) });
             mapper.AddMappings(new List<System.Type> { typeof(PresentationMap) });
             mapper.AddMappings(new List<System.Type> { typeof(ConferenceMap) });
             mapper.AddMappings(new List<System.Type> { typeof(EditionMap) });

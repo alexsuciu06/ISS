@@ -15,7 +15,17 @@ namespace Persistence.DAO
         {
             Id(x => x.Id, m => m.Generator(Generators.Identity)/* m => m.Generator(Generators.Identity)*/);
             Property(x => x.File);
-           // x.Abs = session.Load<Abstract>(parentId); 
+            // x.Abs = session.Load<Abstract>(parentId); 
+            this.ManyToOne(
+                x=> x.Edition,
+                map =>
+                {
+                    map.Column("Edition");
+                    map.Fetch(FetchKind.Join);
+                    map.ForeignKey("none");
+                    map.Lazy(LazyRelation.NoLazy);
+                }
+            );
             this.ManyToOne(
             x => x.Abs,
             map =>

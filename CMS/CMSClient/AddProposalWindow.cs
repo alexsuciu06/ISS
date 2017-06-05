@@ -37,10 +37,11 @@ namespace CMS
 
         private void SubmitButton_Click(object sender, EventArgs e)
         {
-            getKeywordsTopics();
             try
             {
                 ctrl.SubmitProposal(
+                        textBoxPaperName.Text,
+                        textBoxCoAuthors.Text,
                         KeywordsTextBox.Text.Split(','),
                         TopicsTextBox.Text.Split(','),
                         AbstractTextBox.Text,
@@ -51,12 +52,6 @@ namespace CMS
             {
                 MessageBox.Show(ex.Message, "Error submitting proposal", MessageBoxButtons.OK);
             }
-        }
-
-        private void getKeywordsTopics()
-        {
-            keywords += KeywordsTextBox.Text;
-            topics += TopicsTextBox.Text;
         }
 
         private void UploadPaperButton_Click(object sender, EventArgs e)

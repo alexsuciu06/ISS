@@ -29,5 +29,15 @@ namespace Persistence.Repository
                 return session.Query<Paper>().ToList();
             }
         }
+
+        public List<Paper> GetByEdition(int idEdition)
+        {
+            using (ISession session = NHibernateHelper.OpenSession())
+            {
+                return session.Query<Paper>()
+                    .Where(p => p.Edition.IdEdition.Equals(idEdition))
+                    .ToList();
+            };
+        }
     }
 }

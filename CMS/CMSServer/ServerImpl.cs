@@ -20,7 +20,14 @@ namespace CMSServer
         private UserRepository userRepo;
         private ReviewRepository reviewRepo;
         private ReviewerRepository reviewerRepo;
-
+        private TopicsRepository topicsRepo = new TopicsRepository();
+        private MetaInformationTopicsRepository metaTopicsRepo = new MetaInformationTopicsRepository();
+        PaperRepository paerRepo = new PaperRepository();
+        AbstractRepository abstractRepo = new AbstractRepository();
+        PaperMetaInfRepository metaInfoRepo = new PaperMetaInfRepository();
+        RoomRepository roomRepo = new RoomRepository();
+        SessionRepository sessionRepo = new SessionRepository();
+        PresentationRepository presRepo = new PresentationRepository();
 
         public ServerImpl()
         {
@@ -32,19 +39,26 @@ namespace CMSServer
             reviewRepo = new ReviewRepository();
             reviewerRepo = new ReviewerRepository();
         }
-        
-        PaperRepository paerRepo = new PaperRepository();
-        AbstractRepository abstractRepo = new AbstractRepository();
-        PaperMetaInfRepository metaInfoRepo = new PaperMetaInfRepository();
 
-        public void AddProposal(string[] keywords, string[] topics, string abstractFileName, string paperFileName)
+        public void AddProposal(string paper_name, string co_authors, 
+            string[] keywords, string[] topics, string abstractFileName, string paperFileName, 
+            User author, Edition ed)
         { 
-            PaperMetaInformation metaInfo = new PaperMetaInformation(Path.GetFileName(paperFileName), string.Join(",", keywords));
-            Abstract abs = new Abstract(abstractFileName);
-            Paper paper = new Paper(paperFileName, abs, metaInfo);
+            PaperMetaInformation metaInfo = new PaperMetaInformation(paper_name, string.Join(",", keywords), author, co_authors);
             metaInfoRepo.Save(metaInfo);
-            abstractRepo.Save(abs);
-            paerRepo.Save(paper);
+            foreach (string topic in topics) {
+                Topic t = new Topic(topic);
+                topicsRepo.Save(t);
+                MetaInformationTopics mit = new MetaInformationTopics(t, metaInfo);
+                metaTopicsRepo.Save(mit);
+            }
+            
+            Abstract abs = (abstractFileName != "") ? new Abstract(abstractFileName) : null;
+            Paper paper = (paperFileName != "") ? new Paper(paperFileName, abs, metaInfo, ed) : null;
+            if (abs != null)
+                { abstractRepo.Save(abs); }
+            if (paper != null)
+                { paerRepo.Save(paper); }
         }
 
         public bool existsUsername(string username)
@@ -64,7 +78,9 @@ namespace CMSServer
 
         public List<Paper> getAllPapers(int idEdition)
         {
-            return paperRepo.GetAll();
+
+            return paperRepo.GetByEdition(idEdition);
+
         }
 
         public string GetHome()
@@ -138,6 +154,7 @@ namespace CMSServer
             }
             return null;
         }
+
         public void CheckOrCreateDir(string dir_path)
         {
             try
@@ -159,6 +176,7 @@ namespace CMSServer
             return reviewRepo.AssignedReviews(reviewer_id);
         }
 
+
         public List<Bid> getAllReviewers(int id)
         {
             try
@@ -177,6 +195,55 @@ namespace CMSServer
             reviewerRepo.Save(r);
             Review re = new Review( r, null, p, null);
             reviewRepo.Save(re);
+        }
+
+        public void UpdateReview(Review rev)
+        {
+            if (rev.Recomandation != null)
+            {
+                new RecomandationRepository().Save(rev.Recomandation);
+            }
+            reviewRepo.Update(rev);
+        }
+
+        public object GetReviewsForPaper(Paper p)
+        {
+            return reviewRepo.GetForPaper(p);
+        }
+
+        public void AddRoom(int seats, string room_no)
+        {
+            roomRepo.Save(new Room(int.Parse(room_no), seats));
+        }
+
+        public List<Room> AllRooms()
+        {
+            return roomRepo.GetAll();
+        }
+
+        public User GetUserByEmail(string email)
+        {
+            return userRepo.GetByEmail(email);
+        }
+
+        public void AddSession(Session session)
+        {
+            sessionRepo.Save(session);    
+        }
+
+        public List<Session> AllSessions()
+        {
+            return sessionRepo.GetAll();
+        }
+
+        public void AddPresentation(Presentation pres)
+        {
+            presRepo.Save(pres);
+        }
+
+        public List<Presentation> GetPresentationForSession(int id_session)
+        {
+            return presRepo.AllForSession(id_session);
         }
 
     }

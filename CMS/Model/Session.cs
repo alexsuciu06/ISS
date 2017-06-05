@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Model
 {
+    [Serializable]
     public class Session
     {
         private int idSession;
         private Room room;
-        private Presentation presentation;
         private User user;
         private Edition edition;
 
@@ -40,19 +40,6 @@ namespace Model
             }
         }
 
-        public virtual Presentation Presentation
-        {
-            get
-            {
-                return presentation;
-            }
-
-            set
-            {
-                presentation = value;
-            }
-        }
-
         public virtual User User
         {
             get
@@ -79,11 +66,9 @@ namespace Model
             }
         }
 
-        public Session(int idSession, Room room, Presentation presentation, User user, Edition edition)
+        public Session(Room room, User user, Edition edition)
         {
-            this.IdSession = idSession;
             this.Room = room;
-            this.Presentation = presentation;
             this.User = user;
             this.Edition = edition;
         }
@@ -92,14 +77,13 @@ namespace Model
         {
             this.IdSession = 0;
             this.Room = null;
-            this.Presentation = null;
             this.User = null;
             this.Edition = null;
         }
 
         public override string ToString()
         {
-            return IdSession + " " + Room + " " + Presentation + " " + User + " " + Edition;
+            return IdSession + " " + Room + " " + User + " " + Edition;
         }
 
         public override bool Equals(object obj)
@@ -109,7 +93,7 @@ namespace Model
             if (!(obj is Session))
                 return false;
             Session s = (Session)obj;
-            if (s.idSession != this.idSession || s.room != this.room || s.presentation != this.presentation || s.user != this.user || s.edition != this.edition )
+            if (s.idSession != this.idSession || s.room != this.room || s.user != this.user || s.edition != this.edition )
                 return false;
             return true;
         }

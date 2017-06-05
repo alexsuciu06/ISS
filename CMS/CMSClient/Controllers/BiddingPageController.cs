@@ -18,9 +18,21 @@ namespace CMS
             this.server = server;
         }
 
-        public void AddBidding(int idPaper, string bidEnum, User currentUser)
+        public List<Paper> GetAllPapers()
         {
-            Paper paper = server.findPaperById(idPaper);
+            try
+            {
+                return server.GetAllPapers();
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            return null;
+        }
+
+        public void AddBidding(Paper paper, string bidEnum, User currentUser)
+        {
             BidEnum bide = (BidEnum)Enum.Parse(typeof(BidEnum), bidEnum);
             server.AddBidding(paper, bide, currentUser);
         }

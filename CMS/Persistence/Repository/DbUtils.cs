@@ -17,7 +17,7 @@ namespace Persistence.Repository
            // DeleteDatabaseIfExists();
 
             var schemaUpdate = new SchemaUpdate(NHibernateHelper.Configuration);
-            schemaUpdate.Execute(false, true);
+            schemaUpdate.Execute(true, true);
 
         }
 

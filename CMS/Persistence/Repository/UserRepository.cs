@@ -72,5 +72,18 @@ namespace Persistence.Repository
                 return list[0];
             }
         }
+
+        public User GetByEmail(string email)
+        {
+            using (ISession session = NHibernateHelper.OpenSession())
+            {
+                IEnumerable<User> all = session.Query<User>()
+                    .Where(u => u.Email.Equals(email))
+                    .ToList();
+                if (all.Count() == 0)
+                    return null;
+                return all.ElementAt(0);
+            }
+        }
     }
 }

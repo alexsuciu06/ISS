@@ -1,8 +1,10 @@
 using CMSServer;
+using Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace CMS.Validations
@@ -29,6 +31,26 @@ namespace CMS.Validations
             //    throw new DataException("This username is already exists");
         }
 
-        //public bool validate
+        public static void ValidatePdfFile(string filename)
+        {
+            Regex reg = new Regex(".*\\.pdf", RegexOptions.IgnoreCase);
+            if (!reg.IsMatch(filename))
+            {
+                throw new DataException("Only pdf files are allowed");
+            }
+        }
+
+        public static void ValidateDeadline(Edition chosen)
+        {
+            if(DateTime.Now.CompareTo(DateTime.Parse(chosen.Deadline)) > 0)
+            {
+                throw new DataException(
+                    "Deadline for adding proposals was "
+                  + chosen.Deadline
+                );
+            }
+        }
+
+
     }
 }

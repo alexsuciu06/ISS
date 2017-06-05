@@ -80,7 +80,7 @@ namespace CMS
 
         private void OnApplicationExit(object sender, EventArgs e)
         {
-            //cnct.Deconectare();
+            //Application.Exit();
         }
 
         private void LoginButton_Click(object sender, EventArgs e)
