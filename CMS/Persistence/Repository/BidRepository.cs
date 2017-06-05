@@ -28,5 +28,14 @@ namespace Persistence.Repository
                 return session.Query<Bid>().ToList();
             }
         }
+
+        public List<Bid> GetAllRewersById(int id)
+        {
+            using (ISession session = NHibernateHelper.OpenSession())
+            {
+                List<Bid> b = session.Query<Bid>().Where(u => u.Paper.Id.Equals(id)).ToList();
+                return b;
+            }
+        }
     }
 }

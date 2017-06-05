@@ -60,12 +60,19 @@
     <Compile Include="AddProposalWindow.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="AssignReviwer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AssignReviwer.Designer.cs">
+      <DependentUpon>AssignReviwer.cs</DependentUpon>
+    </Compile>
     <Compile Include="BiddingPage.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="BiddingPage.Designer.cs">
       <DependentUpon>BiddingPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\AssignReviwersController.cs" />
     <Compile Include="Controllers\BiddingPageController.cs" />
     <Compile Include="ChooseEdition.cs">
       <SubType>Form</SubType>
@@ -125,6 +132,9 @@
     <Compile Include="ValidationWindow.Designer.cs">
       <DependentUpon>ValidationWindow.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AssignReviwer.resx">
+      <DependentUpon>AssignReviwer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BiddingPage.resx">
       <DependentUpon>BiddingPage.cs</DependentUpon>
     </EmbeddedResource>

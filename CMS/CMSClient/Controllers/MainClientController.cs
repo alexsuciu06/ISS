@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CMS.Validations;
+using System.Windows.Forms;
 
 namespace CMS.Controllers
 {
@@ -19,6 +20,7 @@ namespace CMS.Controllers
         ChooseEditionController chooseEditionController;
         RegisterController registerCtr;
         LoginController loginCtr;
+        AssignReviwersController assignedReviwersCtr;
         User current_user = null;
 
         public MainClientController(IServer server)
@@ -28,7 +30,8 @@ namespace CMS.Controllers
             this.chooseEditionController = new ChooseEditionController(server);
             this.registerCtr = new RegisterController(server);
             this.bidController = new BiddingPageController(server);
-            loginCtr = new LoginController(server);
+            this.assignedReviwersCtr = new AssignReviwersController(server);
+            this.loginCtr = new LoginController(server);
         }
 
         public List<Review> GetAssignedReviews()
@@ -91,9 +94,49 @@ namespace CMS.Controllers
             bidController.AddBidding(idPaper, bidEnum, current_user);
         }
 
+        public List<Bid> getAllReviwers(int id)
+        {
+            try
+            {
+                return server.getAllReviewers(id);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            return null;
+        }
+
+        public List<Paper> getAllReviwers()
+        {
+            try
+            {
+                return server.GetAllPapers();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            return null;
+        }
+
         public List<Paper> GetAllPapers()
         {
-            return bidController.GetAllPapers();
+            try
+            {
+                return server.GetAllPapers();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            return null;
         }
+
+        public void addReview(Paper p,Reviewer r)
+        {
+            server.addReview(p, r);
+        }
+
     }
 }

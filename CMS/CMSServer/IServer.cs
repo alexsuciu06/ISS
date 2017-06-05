@@ -18,15 +18,18 @@ using System.Threading.Tasks;
          void UploadPaper(string title, string keyWords, string topics, string authorsList, string infAboutAuthors);
          string GetHome();
          void AddProposal(string[] keywords, string[] topics, string abstractFileName, string paperFileName);
-        List<Review> AllAssignedReviews(int v);
-        List<Edition> getAllEditions();
+         List<Review> AllAssignedReviews(int v);
+         List<Edition> getAllEditions();
          List<Conference> getAllConferences();
          int getIdEdition(string edition);
          List<Paper> getAllPapers(int idEdition);
-        User validate(string email, string key);
+         User validate(string email, string key);
          Paper findPaperById(int id);
          void AddBidding(Paper paper, BidEnum bidenum, User user);
          List<Paper> GetAllPapers();
-        void CheckOrCreateDir(string uPLOADS_PATH);
+         void CheckOrCreateDir(string uPLOADS_PATH);
+         List<Bid> getAllReviewers(int id);
+
+        void addReview(Paper p, Reviewer r);
     }
  }

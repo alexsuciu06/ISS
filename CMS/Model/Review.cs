@@ -23,6 +23,15 @@ namespace Model
             this.paper = paper;
             this.recomandation = recomandation;
         }
+
+        public Review(Reviewer reviewer, string grade, Paper paper, Recomandation recomandation)
+        {
+            this.reviewer = reviewer;
+            this.grade = grade;
+            this.paper = paper;
+            this.recomandation = recomandation;
+        }
+
         public Review()
         {
             this.idReview = 1;

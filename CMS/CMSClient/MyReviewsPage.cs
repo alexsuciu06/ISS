@@ -32,7 +32,7 @@ namespace CMS
         private void button1_Click(object sender, EventArgs e)
         {
             Review selected = assignedReviewsGrid.SelectedRows[0].DataBoundItem as Review;
-            ReviewPage review_page = new ReviewPage(selected, ctr);
+            ReviewPage review_page = new ReviewPage();
             review_page.Show();
         }
 
