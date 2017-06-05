@@ -7,6 +7,7 @@ using NHibernate;
 using Persistence.utils;
 using Model;
 using NHibernate.Linq;
+using System.Windows.Forms;
 
 namespace Persistence.Repository
 {

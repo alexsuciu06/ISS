@@ -18,19 +18,6 @@ namespace CMS
             this.server = server;
         }
 
-        public List<Paper> GetAllPapers()
-        {
-            try
-            {
-                return server.GetAllPapers();
-            }
-            catch(Exception e)
-            {
-                MessageBox.Show(e.Message);
-            }
-            return null;
-        }
-
         public void AddBidding(int idPaper, string bidEnum, User currentUser)
         {
             Paper paper = server.findPaperById(idPaper);

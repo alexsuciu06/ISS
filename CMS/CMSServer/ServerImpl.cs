@@ -64,7 +64,7 @@ namespace CMSServer
 
         public List<Paper> getAllPapers(int idEdition)
         {
-            throw new NotImplementedException();
+            return paperRepo.GetAll();
         }
 
         public string GetHome()
@@ -128,16 +128,16 @@ namespace CMSServer
 
         public List<Paper> GetAllPapers()
         {
-            try {
-
-            return paperRepo.GetAll();
+            try
+            {
+                return paperRepo.GetAll();
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
             }
             return null;
-
+        }
         public void CheckOrCreateDir(string dir_path)
         {
             try
@@ -158,5 +158,26 @@ namespace CMSServer
         {
             return reviewRepo.AssignedReviews(reviewer_id);
         }
+
+        public List<Bid> getAllReviewers(int id)
+        {
+            try
+            {
+                return bidRepo.GetAllRewersById(id);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            return null;
+        }
+
+        public void addReview(Paper p, Reviewer r)
+        {
+            reviewerRepo.Save(r);
+            Review re = new Review( r, null, p, null);
+            reviewRepo.Save(re);
+        }
+
     }
 }
