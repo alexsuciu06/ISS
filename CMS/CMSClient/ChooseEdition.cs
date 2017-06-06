@@ -88,5 +88,12 @@ namespace CMS
                 this.Hide();
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Conference conference = listBox1.SelectedItem as Conference;
+            AddEditionWindow editionWindow = new AddEditionWindow(conference, ctr);
+            editionWindow.Show();
+        }
     }
 }

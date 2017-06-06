@@ -18,16 +18,22 @@ namespace CMS
     public partial class AddEditionWindow : Form
     {
         
-        private string conferenceName = "";
-        private string editionName = "";
         private Conference conference;
+
+        private string editionName;
+        private DateTime deadline;
+        private DateTime startDateTime;
+        private DateTime endDateTime;
         private Edition edition;
+
         private MainClientController mcController;
 
 
 
-        public AddEditionWindow()
+        public AddEditionWindow(Conference conference, MainClientController mcController)
         {
+            this.conference = conference;
+            this.mcController = mcController;
             InitializeComponent();
         }
 
@@ -38,41 +44,8 @@ namespace CMS
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-
-          
+            InputData();
             AddEditionHandle();
-            ConferenceNameTextBox.Text = "";
-        }
-
-        private void AddEditionHandle()
-        {
-            conferenceName = ConferenceNameTextBox.Text;
-            editionName = EditionNameTextBox.Text;
-
-            if (CheckConferenceName())
-            {
-                if (CheckEditionName())
-                {
-                    conference = new Conference(conferenceName);
-                    edition = new Edition(editionName, conference);
-                    mcController.AddConference(conference);
-                    mcController.AddEdition(edition);
-                }
-                else
-                {
-                    MessageBox.Show("Introduceti numele Editiei!", "Warning!");
-                }
-            }
-            else
-            {
-                MessageBox.Show("Introduceti numele Conferintei!", "Warning!");
-            }
-        }
-
-
-        private bool CheckConferenceName()
-        {
-            return conferenceName == "" ? false : true;
         }
 
 
@@ -80,6 +53,51 @@ namespace CMS
         {
             return editionName == "" ? false : true;
         }
+
+        private void InputData()
+        {
+            if(CheckEditionName())
+                editionName = EditionNameTextBox.Text;
+
+            deadline = new DateTime(1900, 1, 1);
+            DateTime.TryParse(DeadlineTextBox.Text, out deadline);
+            if (deadline.Year.Equals(1900))
+            {
+                MessageBox.Show("Time should be in DD/MM/YYYY HH:MM format!");
+                return;
+            }
+
+            startDateTime = new DateTime(1900, 1, 1);
+            DateTime.TryParse(StartTextBox.Text, out startDateTime);
+            if (startDateTime.Year.Equals(1900))
+            {
+                MessageBox.Show("Time should be in DD/MM/YYYY HH:MM format!");
+                return;
+            }
+
+            endDateTime = new DateTime(1900, 1, 1);
+            DateTime.TryParse(EndsTextBox.Text, out endDateTime);
+            if (endDateTime.Year.Equals(1900))
+            {
+                MessageBox.Show("Time should be in DD/MM/YYYY HH:MM format!");
+                return;
+            }
+        }
+
+
+        private void AddEditionHandle()
+        {
+            edition = new Edition(editionName, conference, DeadlineTextBox.Text, StartTextBox.Text, EndsTextBox.Text);
+            mcController.AddEdition(edition);
+        }
+
+
+        
+
+
+        
+
+
 
         private void AddEditionWindow_Load(object sender, EventArgs e)
         {
