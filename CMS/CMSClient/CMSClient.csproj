@@ -65,6 +65,7 @@
     </Compile>
     <Compile Include="AssignReviwer.Designer.cs">
       <DependentUpon>AssignReviwer.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddRoomForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -163,6 +164,7 @@
     </Compile>
     <EmbeddedResource Include="AssignReviwer.resx">
       <DependentUpon>AssignReviwer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddRoomForm.resx">
       <DependentUpon>AddRoomForm.cs</DependentUpon>
     </EmbeddedResource>

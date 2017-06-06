@@ -19,6 +19,8 @@ namespace CMS
         Recomandation recomandation = null;
         MainClientController ctr;
 
+        public ReviewPage() { }
+
         public ReviewPage(Review rev, MainClientController ctr)
         {
             InitializeComponent();
