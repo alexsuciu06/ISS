@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using CMS.Controllers;
+using Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,10 +17,12 @@ namespace CMS
 {
     public partial class AddEditionWindow : Form
     {
+        
         private string conferenceName = "";
         private string editionName = "";
         private Conference conference;
         private Edition edition;
+        private MainClientController mcController;
 
 
 
@@ -52,6 +55,8 @@ namespace CMS
                 {
                     conference = new Conference(conferenceName);
                     edition = new Edition(editionName, conference);
+                    mcController.AddConference(conference);
+                    mcController.AddEdition(edition);
                 }
                 else
                 {
@@ -76,7 +81,14 @@ namespace CMS
             return editionName == "" ? false : true;
         }
 
+        private void AddEditionWindow_Load(object sender, EventArgs e)
+        {
 
+        }
 
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

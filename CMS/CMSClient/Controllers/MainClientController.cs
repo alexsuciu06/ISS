@@ -202,5 +202,16 @@ namespace CMS.Controllers
             server.addReview(p, r);
         }
 
+
+        public void AddEdition(Edition edition)
+        {
+            server.AddEdition(edition);
+        }
+
+        public void AddConference(Conference conference)
+        {
+            server.AddConference(conference);
+        }
+
     }
 }
