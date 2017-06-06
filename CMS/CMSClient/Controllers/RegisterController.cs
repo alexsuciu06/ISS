@@ -26,7 +26,7 @@ namespace CMS.Controlers
             try
             {
                 server.Register(first_name, last_name, affilation, username, password, email, role);
-                MessageBox.Show("You will receive a confirmation mail");
+                MessageBox.Show("You will receive a confirmation mail. It may takes same few minutes");
             }
             catch (Exception e)
             {

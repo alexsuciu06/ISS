@@ -17,18 +17,22 @@ namespace CMS.Validations
                 throw new DataException("Email invalid");
         }
 
-        public void validatePassword(string password,string confirm_password)
+        public void validatePassword(string password, string confirm_password)
         {
+            if (password.Length <= 5)
+            {
+                throw new DataException("Password is to short ! The password must have at least 6 characters");
+            }
             if (!password.Equals(confirm_password))
                 throw new DataException("Passwords are not equal");
         }
 
-        public void validateUsername(IServer server, string username)
+        public void validateExists(string username, string fist_name, string last_name, string affilation,string role)
         {
-            //if (!server.validateUserName(username))
-            //    throw new DataException("This username is already exists");
-            //if (!server.validateUserName(username))
-            //    throw new DataException("This username is already exists");
+            if (username.Length < 3 || fist_name.Length < 3 || last_name.Length <3 || affilation.Length == 0 || role.Length == 0)
+            {
+                throw new DataException("Invalid data. Check if all text fields are completed");
+            } 
         }
 
         public static void ValidatePdfFile(string filename)
