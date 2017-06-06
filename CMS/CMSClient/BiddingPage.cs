@@ -61,7 +61,7 @@ namespace CMS
 
             comboBox1.Items.Add("PLEASED_TO_REVIEW");
             comboBox1.Items.Add("COULD_EVALUATE");
-            comboBox1.Items.Add("REFUZE_TO_EVALUATE");
+            comboBox1.Items.Add("REFUSE_TO_EVALUATE");
             comboBox1.SelectedIndex = 1;
         }
 
