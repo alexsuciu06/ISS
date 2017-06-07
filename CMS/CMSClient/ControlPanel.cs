@@ -107,12 +107,14 @@ namespace CMS
 
         private void AddConferenceBtn(object sender, EventArgs e)
         {
-
+            AddEditionWindow addEdwin = new AddEditionWindow(ctr.CurrentEdition.Conference, ctr);
+            addEdwin.Show();
         }
 
         private void AssignReviewsBtn(object sender, EventArgs e)
         {
-
+            AssignReviwer assignRevWin = new AssignReviwer(ctr);
+            assignRevWin.Show();
         }
 
         private void AlllReviewsBtn(object sender, EventArgs e)

@@ -88,7 +88,10 @@ namespace Model
 
         public override string ToString()
         {
-            return idPaperMetaInformation + " " + name + " " + keywords;
+            return "Author: " + author.First_name + " " + author.Last_name + "\n"
+                + "Co-Authors: " + co_authors + "\n" +
+                "Paper name: " + name + "\n"
+                + "Keywords: " + keywords + "\n";
         }
 
         public override bool Equals(object obj)

@@ -37,7 +37,14 @@ namespace Model
 
         public override string ToString()
         {
-            return idAbstract + " " + file;
+            if(file == "")
+            {
+                return "Not available";
+            } else
+            {
+                return Path.GetFileNameWithoutExtension(file);
+            }
+            
         }
 
         public override bool Equals(object obj)

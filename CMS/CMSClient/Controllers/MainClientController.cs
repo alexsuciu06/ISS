@@ -66,7 +66,7 @@ namespace CMS.Controllers
 
         public List<Review> GetAssignedReviews()
         {
-            return server.AllAssignedReviews(CurrentUser.Id);
+            return server.AllAssignedReviews(CurrentUser.First_name);
         }
 
         public void register(string first_name, string last_name, string affilation, string username, string password, string email, string role)

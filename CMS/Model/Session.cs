@@ -83,7 +83,8 @@ namespace Model
 
         public override string ToString()
         {
-            return IdSession + " " + Room + " " + User + " " + Edition;
+            return "Room: " + Room.RoomNr + "\n"
+                + "Session chair:" + User.First_name + " " + User.Last_name + "\n";
         }
 
         public override bool Equals(object obj)

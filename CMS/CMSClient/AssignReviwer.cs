@@ -35,6 +35,10 @@ namespace CMS
                     dataGridViewReviewers.DataSource = ctr.getAllReviwers(paper_id);
                     dataGridViewReviewers.Columns["Id"].Visible = false;
                     dataGridViewReviewers.Columns["Paper"].Visible = false;
+                    dataGridViewPapers.Columns["Edition"].Visible = false;
+                    dataGridViewPapers.Columns["File"].Visible = false;
+                    dataGridViewPapers.Columns["Id"].Visible = false;
+                    dataGridViewPapers.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
                 }
                 catch (Exception ex)
                 {
@@ -54,6 +58,7 @@ namespace CMS
                 Reviewer reviewer = new Reviewer(user.Id, user.First_name, user.Affilation);
 
                 ctr.addReview(selected_papaer, reviewer);
+                MessageBox.Show("Review assigned!");
             }
             else
             {
@@ -63,9 +68,11 @@ namespace CMS
 
         private void AssignReviwer_Load(object sender, EventArgs e)
         {
+            //dataGridViewPapers.Columns["Meta"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dataGridViewPapers.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
             try
             {
-                dataGridViewPapers.DataSource = ctr.GetAllPapers();
+                dataGridViewPapers.DataSource = ctr.getAllPapersForEdition();
             }
             catch (Exception ex)
             {

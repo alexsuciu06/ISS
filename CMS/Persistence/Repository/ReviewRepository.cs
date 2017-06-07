@@ -28,12 +28,12 @@ namespace Persistence.Repository
             }
         }
 
-        public List<Review> AssignedReviews(int reviewer_id)
+        public List<Review> AssignedReviews(string reviewer_id)
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
                 return session.Query<Review>()
-                    .Where( r => r.Reviewer.IdReviewer == reviewer_id)
+                    .Where( r => r.Reviewer.Name.Equals(reviewer_id))
                     .ToList();
             }
         }

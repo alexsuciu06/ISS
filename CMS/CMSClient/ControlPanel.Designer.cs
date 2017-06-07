@@ -224,6 +224,7 @@
             this.panelListener.Name = "panelListener";
             this.panelListener.Size = new System.Drawing.Size(157, 72);
             this.panelListener.TabIndex = 6;
+            this.panelListener.Visible = false;
             // 
             // btnViewSchedule2
             // 

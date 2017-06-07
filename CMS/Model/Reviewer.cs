@@ -67,7 +67,7 @@ namespace Model
 
         public override string ToString()
         {
-            return this.idReviewer + " " + this.name + this.affilation;
+            return this.name;
         }
 
         public override bool Equals(object other)

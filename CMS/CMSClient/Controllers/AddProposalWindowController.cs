@@ -20,12 +20,12 @@ namespace CMS
             if ( path_to_abstract != null && !(path_to_abstract.Equals("")) )
             {
                 ValidationData.ValidatePdfFile(path_to_abstract);
-                PostFileToServerTemp(path_to_abstract, current);
+                PostPaperToServerTemp(path_to_abstract, current, author, "Abstract");
             }
             if ( path_to_paper != null && !(path_to_paper.Equals("")) )
             {
                 ValidationData.ValidatePdfFile(path_to_paper);
-                PostFileToServerTemp(path_to_paper, current);
+                PostPaperToServerTemp(path_to_paper, current, author, "Paper");
             }
             ValidationData.ValidateDeadline(current);
             server.AddProposal(
@@ -40,14 +40,13 @@ namespace CMS
             );
         }
 
-        private void PostFileToServerTemp(string local_path, Edition current)
+        private void PostPaperToServerTemp(string local_path, Edition current, User author, string final_dir)
         {
-            
             try
             {
-                string uploads_path = getUploadsPath(current);
+                string uploads_path = getPaperUploadsPath(current, author, final_dir);
                 server.CheckOrCreateDir(uploads_path);
-                File.Copy(local_path, uploads_path + Path.GetFileName(local_path));
+                File.Copy(local_path, uploads_path + Path.GetFileName(local_path), true);
             }
             catch (System.Exception e)
             {
@@ -55,12 +54,14 @@ namespace CMS
             }
         }
 
-        private string getUploadsPath(Edition current)
+        private string getPaperUploadsPath(Edition current, User author, string final_dir)
         {
             string SERVER_HOME_PATH = server.GetHome();
             string UPLOADS_PATH = SERVER_HOME_PATH + "uploads\\"
                 + current.Conference.IdConference + "\\"
-                + current.IdEdition + "\\";
+                + current.IdEdition + "\\" 
+                + author.Id + "\\"
+                +final_dir + "\\";
 
             return UPLOADS_PATH;
         }

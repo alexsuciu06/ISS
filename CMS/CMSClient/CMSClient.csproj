@@ -60,6 +60,12 @@
     <Compile Include="AddProposalWindow.cs">
       <SubType>Form</SubType>
     </Compile>
+	<Compile Include="AddEditionWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEditionWindow.Designer.cs">
+      <DependentUpon>AddEditionWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="AssignReviwer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,6 +168,9 @@
     <Compile Include="ValidationWindow.Designer.cs">
       <DependentUpon>ValidationWindow.cs</DependentUpon>
     </Compile>
+	<EmbeddedResource Include="AddEditionWindow.resx">
+      <DependentUpon>AddEditionWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AssignReviwer.resx">
       <DependentUpon>AssignReviwer.cs</DependentUpon>
     </EmbeddedResource>
