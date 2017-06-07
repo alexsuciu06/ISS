@@ -22,6 +22,8 @@ namespace CMSServer
         private ReviewerRepository reviewerRepo;
         private TopicsRepository topicsRepo = new TopicsRepository();
         private MetaInformationTopicsRepository metaTopicsRepo = new MetaInformationTopicsRepository();
+        
+
         PaperRepository paerRepo = new PaperRepository();
         AbstractRepository abstractRepo = new AbstractRepository();
         PaperMetaInfRepository metaInfoRepo = new PaperMetaInfRepository();
@@ -38,6 +40,16 @@ namespace CMSServer
             userRepo = new UserRepository();
             reviewRepo = new ReviewRepository();
             reviewerRepo = new ReviewerRepository();
+        }
+
+        public void AddEdition(Edition edition)
+        {
+            editionRepository.Save(edition);
+        }
+
+        public void AddConference(Conference conference)
+        {
+            conferenceRepository.Save(conference);
         }
 
         public void AddProposal(string paper_name, string co_authors, 
@@ -246,5 +258,9 @@ namespace CMSServer
             return presRepo.AllForSession(id_session);
         }
 
+        public void AddProposal(string[] keywords, string[] topics, string abstractFileName, string paperFileName)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
