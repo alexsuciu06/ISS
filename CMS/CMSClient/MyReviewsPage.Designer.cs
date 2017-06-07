@@ -38,6 +38,7 @@
             // 
             this.assignedReviewsGrid.AllowUserToAddRows = false;
             this.assignedReviewsGrid.AllowUserToDeleteRows = false;
+            this.assignedReviewsGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.assignedReviewsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.assignedReviewsGrid.Location = new System.Drawing.Point(59, 73);
             this.assignedReviewsGrid.Name = "assignedReviewsGrid";

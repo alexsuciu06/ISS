@@ -39,25 +39,29 @@
             // 
             // dataGridViewPapers
             // 
+            this.dataGridViewPapers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewPapers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewPapers.Location = new System.Drawing.Point(39, 52);
             this.dataGridViewPapers.Name = "dataGridViewPapers";
-            this.dataGridViewPapers.Size = new System.Drawing.Size(486, 464);
+            this.dataGridViewPapers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullColumnSelect;
+            this.dataGridViewPapers.Size = new System.Drawing.Size(442, 242);
             this.dataGridViewPapers.TabIndex = 0;
             this.dataGridViewPapers.SelectionChanged += new System.EventHandler(this.dataGridViewPapers_SelectionChanged);
             // 
             // dataGridViewReviewers
             // 
+            this.dataGridViewReviewers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewReviewers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewReviewers.Location = new System.Drawing.Point(634, 52);
+            this.dataGridViewReviewers.Location = new System.Drawing.Point(539, 52);
             this.dataGridViewReviewers.Name = "dataGridViewReviewers";
-            this.dataGridViewReviewers.Size = new System.Drawing.Size(443, 464);
+            this.dataGridViewReviewers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewReviewers.Size = new System.Drawing.Size(370, 242);
             this.dataGridViewReviewers.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(48, 33);
+            this.label1.Location = new System.Drawing.Point(36, 23);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(40, 13);
             this.label1.TabIndex = 2;
@@ -66,7 +70,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(704, 33);
+            this.label2.Location = new System.Drawing.Point(536, 23);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(57, 13);
             this.label2.TabIndex = 3;
@@ -74,11 +78,11 @@
             // 
             // buttonAddReview
             // 
-            this.buttonAddReview.Location = new System.Drawing.Point(824, 541);
+            this.buttonAddReview.Location = new System.Drawing.Point(539, 333);
             this.buttonAddReview.Name = "buttonAddReview";
-            this.buttonAddReview.Size = new System.Drawing.Size(75, 23);
+            this.buttonAddReview.Size = new System.Drawing.Size(148, 35);
             this.buttonAddReview.TabIndex = 5;
-            this.buttonAddReview.Text = "Add Review";
+            this.buttonAddReview.Text = "Assign Review";
             this.buttonAddReview.UseVisualStyleBackColor = true;
             this.buttonAddReview.Click += new System.EventHandler(this.buttonAddReview_Click);
             // 
@@ -86,7 +90,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1191, 615);
+            this.ClientSize = new System.Drawing.Size(934, 409);
             this.Controls.Add(this.buttonAddReview);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);

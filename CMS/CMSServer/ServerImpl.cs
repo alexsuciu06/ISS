@@ -7,12 +7,15 @@ using Model;
 using Persistence.Repository;
 using System.IO;
 using System.Timers;
+using System.Security.Permissions;
+using System.Runtime.Remoting.Lifetime;
 
 namespace CMSServer
 {
    
     public class ServerImpl : MarshalByRefObject, IServer
     {
+      
         private EditionRepository editionRepository;
         private ConferenceRepository conferenceRepository;
         private PaperRepository paperRepo;
@@ -183,11 +186,6 @@ namespace CMSServer
             }
         }
 
-        public List<Review> AllAssignedReviews(int reviewer_id)
-        {
-            return reviewRepo.AssignedReviews(reviewer_id);
-        }
-
 
         public List<Bid> getAllReviewers(int id)
         {
@@ -259,6 +257,30 @@ namespace CMSServer
         }
 
         public void AddProposal(string[] keywords, string[] topics, string abstractFileName, string paperFileName)
+        {
+            throw new NotImplementedException();
+        }
+
+        [SecurityPermissionAttribute(SecurityAction.Demand,
+                               Flags = SecurityPermissionFlag.Infrastructure)]
+        public override Object InitializeLifetimeService()
+        {
+            ILease lease = (ILease)base.InitializeLifetimeService();
+            if (lease.CurrentState == LeaseState.Initial)
+            {
+                lease.InitialLeaseTime = TimeSpan.FromMinutes(15);
+                lease.SponsorshipTimeout = TimeSpan.FromMinutes(5);
+                lease.RenewOnCallTime = TimeSpan.FromMinutes(2);
+            }
+            return lease;
+        }
+
+        public List<Review> AllAssignedReviews(string reviewer_name)
+        {
+            return reviewRepo.AssignedReviews(reviewer_name);
+        }
+
+        public List<Review> AllAssignedReviews(int v)
         {
             throw new NotImplementedException();
         }

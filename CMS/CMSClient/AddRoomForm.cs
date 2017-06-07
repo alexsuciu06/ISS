@@ -15,10 +15,12 @@ namespace CMS
     public partial class AddRoomForm : Form
     {
         MainClientController ctr;
+        AddSessionWindow sender;
 
-        public AddRoomForm(MainClientController ctr)
+        public AddRoomForm(MainClientController ctr, AddSessionWindow sender)
         {
             InitializeComponent();
+            this.sender = sender;
             this.ctr = ctr;
         }
 
@@ -37,6 +39,16 @@ namespace CMS
                 return;
             }
             ctr.AddNewRoom(seats, textBox2.Text);
+            MessageBox.Show("Room added");
+            if (this.sender != null)
+            {
+                this.sender.UpdateRoomsList();
+            } else
+            {
+                MessageBox.Show("Room added!");
+                this.sender = new AddSessionWindow(ctr, null);
+                this.sender.Show();
+            }
         }
     }
 }

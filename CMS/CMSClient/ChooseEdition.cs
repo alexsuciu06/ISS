@@ -45,6 +45,10 @@ namespace CMS
             {
                 MessageBox.Show(ex.Message);
             }
+            if (!ctr.CurrentUser.Rol.Equals("PCMember"))
+            {
+                this.btnAddEdition.Visible = false;
+            }
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
@@ -59,7 +63,6 @@ namespace CMS
             {
                 try
                 {
-                    ;
                     var results = ctr.GetAllEditions().Where(o => o.Conference.IdConference == (listBox1.SelectedItem as Conference).IdConference).ToList();
                     dataGridView1.DataSource = (List<Edition>)results;
                     dataGridView1.Columns["IdEdition"].Visible = false;

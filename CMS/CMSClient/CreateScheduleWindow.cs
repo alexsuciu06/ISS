@@ -26,12 +26,25 @@ namespace CMS
             {
                 this.chosenPaperLabel.Visible = false;
                 this.btnAddPresentation.Visible = false;
+                this.textBox1.Visible = false;
+                this.label4.Visible = false;
+            } else
+            {
+                chosenPaperLabel.Text += " " + paper;
+            }
+            if (!ctr.CurrentUser.Role.Equals(Role.PCMember))
+            {
+                this.chosenPaperLabel.Visible = false;
+                this.btnAddPresentation.Visible = false;
+                this.textBox1.Visible = false;
+                this.label4.Visible = false;
+                this.btnAddSession.Visible = false;
             }
         }
 
         private void btnAddSession_Click(object sender, EventArgs e)
         {
-            AddSessionWindow addSessionWin = new AddSessionWindow(ctr);
+            AddSessionWindow addSessionWin = new AddSessionWindow(ctr, this);
             addSessionWin.Show();
         }
 
@@ -53,12 +66,24 @@ namespace CMS
                 return;
             }
             Presentation pres = new Presentation(paper, pres_time, listBox1.SelectedItem as Session);
+
             ctr.AddPresentation(pres);
+
+            if (listBox1.SelectedItems.Count > 0)
+            {
+                Session selected = listBox1.SelectedItems[0] as Session;
+                dataGridView1.DataSource = ctr.GetPresentationsForSession(selected.IdSession);
+            }
+        }
+
+        internal void RefreshSessions()
+        {
+            listBox1.DataSource = ctr.AllSessions();
         }
 
         private void CreateScheduleWindow_Load(object sender, EventArgs e)
         {
-            listBox1.DataSource = ctr.AllSessions();
+            RefreshSessions();
         }
 
         private void listBox1_SelectedValueChanged(object sender, EventArgs e)
@@ -67,6 +92,8 @@ namespace CMS
             {
                 Session selected = listBox1.SelectedItems[0] as Session;
                 dataGridView1.DataSource = ctr.GetPresentationsForSession(selected.IdSession);
+                dataGridView1.Columns["Id"].Visible = false;
+                dataGridView1.Columns["Session"].Visible = false;
             }
         }
     }

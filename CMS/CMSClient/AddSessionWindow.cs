@@ -15,11 +15,13 @@ namespace CMS
     public partial class AddSessionWindow : Form
     {
         MainClientController ctr;
+        CreateScheduleWindow _sender = null;
 
-        public AddSessionWindow(MainClientController ctr)
+        public AddSessionWindow(MainClientController ctr, CreateScheduleWindow _sender)
         {
             InitializeComponent();
             this.ctr = ctr;
+            this._sender = _sender;
         }
 
         private void btnAddSession_Click(object sender, EventArgs e)
@@ -38,18 +40,30 @@ namespace CMS
             }
             Session session = new Session(chosen, chair, ctr.CurrentEdition);
             ctr.AddSession(session);
+            if (_sender != null)
+            {
+                _sender.RefreshSessions();
+            } else
+            {
+                MessageBox.Show("Session added.");
+            }
         }
 
         private void buttonAddRoom_Click(object sender, EventArgs e)
         {
-            AddRoomForm addRoomForm = new AddRoomForm(ctr);
+            AddRoomForm addRoomForm = new AddRoomForm(ctr, this);
             addRoomForm.Show();
+        }
+
+        internal void UpdateRoomsList()
+        {
+            comboBoxRooms.DataSource = ctr.AllRooms();
+            comboBoxRooms.DisplayMember = "RoomNr";
         }
 
         private void AddSessionWindow_Load(object sender, EventArgs e)
         {
-            comboBoxRooms.DataSource= ctr.AllRooms();
-            comboBoxRooms.DisplayMember = "RoomNr";
+            UpdateRoomsList();
         }
     }
 }

@@ -13,7 +13,7 @@ namespace Persistence.DAO
     {
         public ReviewerMap()
         {
-            Id(x => x.IdReviewer, m => m.Generator(Generators.Identity)/* m => m.Generator(Generators.Identity)*/);
+            Id(x => x.IdReviewer, m => m.Generator(Generators.Identity));
             Property(x => x.Name);
             Property(x => x.Affilation);
         }

@@ -30,7 +30,6 @@ namespace CMSServer
             TcpChannel channel = new TcpChannel(props, clientProv, serverProv);
             ChannelServices.RegisterChannel(channel, false);
 
-
             var server = new ServerImpl();
             RemotingServices.Marshal(server, "Chat");
 

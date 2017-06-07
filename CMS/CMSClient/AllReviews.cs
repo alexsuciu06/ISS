@@ -20,9 +20,9 @@ namespace CMS
         {
             this.ctr = ctr;
             InitializeComponent();
-            if (!ctr.CurrentUser.Role.Equals(Role.PCMember))
+            if (ctr.CurrentUser.Role.Equals(Role.PCMember))
             {
-                btnAddToSession.Visible = false;
+                btnAddToSession.Visible = true;
             }
         }
 
@@ -37,8 +37,9 @@ namespace CMS
 
         private void btnViewRecomandation_Click(object sender, EventArgs e)
         {
-            if (dataGridViewPapers.SelectedRows.Count == 0)
+            if (dataGridViewReviews.SelectedRows.Count == 0)
             {
+                MessageBox.Show("Select a review first");
                 return;
             }
             Review r = dataGridViewReviews.SelectedRows[0].DataBoundItem as Review;
@@ -66,7 +67,9 @@ namespace CMS
                 }
                 dataGridViewPapers.DataSource = my_papers;
             }
-                
+            dataGridViewPapers.Columns["Id"].Visible = false;
+            dataGridViewPapers.Columns["Edition"].Visible = false;
+            dataGridViewPapers.Columns["File"].Visible = false;
         }
 
 
@@ -76,6 +79,11 @@ namespace CMS
             if (dataGridViewPapers.SelectedRows.Count > 0)
             {
                 p = dataGridViewPapers.SelectedRows[0].DataBoundItem as Paper;
+            }
+            if (p==null)
+            {
+                MessageBox.Show("No paper selected");
+                return;
             }
             CreateScheduleWindow win = new CreateScheduleWindow(p, ctr);
             win.Show();

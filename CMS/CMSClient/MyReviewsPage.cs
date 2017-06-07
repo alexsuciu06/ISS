@@ -31,8 +31,10 @@ namespace CMS
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (assignedReviewsGrid.SelectedRows.Count == 0)
+                return;
             Review selected = assignedReviewsGrid.SelectedRows[0].DataBoundItem as Review;
-            ReviewPage review_page = new ReviewPage();
+            ReviewPage review_page = new ReviewPage(selected, ctr);
             review_page.Show();
         }
 

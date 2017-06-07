@@ -34,6 +34,11 @@ namespace CMS
             if (dataGridView1.SelectedRows.Count != 0)
             {
                 Paper _object = (Paper)dataGridView1.SelectedRows[0].DataBoundItem;
+                if (_object.File == null || _object.File == "" )
+                {
+                    MessageBox.Show("The full paper file was not uploaded.\n Try to open the abstract.");
+                    return;
+                }
                 PDFDocViewer doc_viewer = new PDFDocViewer(_object.File);
                 doc_viewer.Show();
             }
@@ -52,7 +57,10 @@ namespace CMS
         {
             try
             {
-                dataGridView1.DataSource = ctr.GetAllPapers();
+                dataGridView1.DataSource = ctr.getAllPapersForEdition();
+                dataGridView1.Columns["Id"].Visible = false;
+                dataGridView1.Columns["Edition"].Visible = false;
+                dataGridView1.Columns["File"].Visible = false;
             }
             catch (Exception ex)
             {
@@ -61,7 +69,7 @@ namespace CMS
 
             comboBox1.Items.Add("PLEASED_TO_REVIEW");
             comboBox1.Items.Add("COULD_EVALUATE");
-            comboBox1.Items.Add("REFUZE_TO_EVALUATE");
+            comboBox1.Items.Add("REFUSE_TO_EVALUATE");
             comboBox1.SelectedIndex = 1;
         }
 
@@ -74,6 +82,7 @@ namespace CMS
             }
             Paper selected = dataGridView1.SelectedRows[0].DataBoundItem as Paper;
             ctr.AddBidding(selected, value);
+            MessageBox.Show("Your bid was added");
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -84,10 +93,21 @@ namespace CMS
                 if(_object.Abs == null || _object.Abs.File == null || _object.Abs.File == "")
                 {
                     MessageBox.Show("The abstract file was not loaded.\n Try to open the full paper");
+                    return;
                 }
                 PDFDocViewer doc_viewer = new PDFDocViewer(_object.Abs.File);
                 doc_viewer.Show();
             }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
